@@ -51,7 +51,7 @@
             <img src="Imgs/greenEnergy.png">
         </div>
         <div class="credit">
-            <img src="Imgs/goldenFlask.png">
+            <img src="Imgs/flasks/goldenFlask.png">
             <p id="goldenFlaskText" style="color:var(--prestige-color)">0.00 Golden Flasks</p>
         </div>
     </div>
@@ -66,13 +66,18 @@
     <div id="testingTab" class="flexCol tabHolder">
         <div class="flexRow">
             <div id="currentTestHolder" class="testHolder flexCol">
-                <img src="Imgs/redFlask.png">
+                <img src="Imgs/flasks/redFlask.png">
                 <p>-=Red Flask=-<br>Time to Test: 0.00s<br>Cost: None</p>
                 <button>Test Red Flask</button>
             </div>
             <div id="nextTestHolder" class="testHolder flexCol">
-                <img src="Imgs/questionFlask.png">
+                <img src="Imgs/flasks/questionFlask.png">
                 <p>-=???=-<br>Time to Test: 0.00s<br>Cost: None</p>
+            </div>
+        </div>
+        <div id="testingProgressBar">
+            <div id="progress">
+                <p id="progressText">0.00%</p>
             </div>
         </div>
     </div>
@@ -109,4 +114,5 @@
     <script src="JS/data.js"></script>
     <script src="JS/main.js"></script>
     <script src="JS/update.js"></script>
+    <script src="JS/flasks.js"></script>
 </html>

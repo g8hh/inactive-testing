@@ -1,3 +1,5 @@
+const flaskImgPath = 'Imgs/flasks/'
+const dropImgPath = 'Imgs/drops/'
 let diff = 0;
 
 function generateEventHandlers() {

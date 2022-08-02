@@ -4,8 +4,7 @@
 }
 
 :root {
-    --bg-color: #636b6b;
-    --header-color: whitesmoke;
+    --bg-color: #666d6d;
     --locked-color: #812626;
     --unlocked-color: #2f8126;
     --maxed-color: #267081;
@@ -177,6 +176,10 @@ h1,h2,h3,h4 { margin-bottom: 1vh;}
 #promptInput {background-color: var(--bg-color); border: 2px solid; border-radius: 2px;}
 
 #tabButtonHolder button, #settingsButtonHolder button {margin: 0.5vh;}
+
+#testingProgressBar {background-color: whitesmoke;width: 50%;height:10%;}
+#progress {background-color: var(--unlocked-color);width:0%;height:100%}
+#progressText {color:black;font-size: 1em;}
 /*
 <div class="notifyjs-wrapper notifyjs-hidable">
 	<div class="notifyjs-arrow"></div>
