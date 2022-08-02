@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://mrbacon470.github.io/Coop-Co/">
+        <meta property="og:title" content="Coop Co v1.2.0">
+        <meta property="og:description" content="Coop Co made by VoidCloud.">
+        <meta property="og:image" content="https://mrbacon470.github.io/Coop-Co/Imgs/Eggs/egg.png">
+        <meta content="#f0ead6" data-react-helmet="true" name="theme-color" />
+    -->
+    <script src="JS/Internal/jquery-3.6.0.min.js"></script>
+    <script src="JS/Internal/notify.js"></script>
+    <link rel="stylesheet" href="CSS/Theme-Original.css">
+    <link id="faviconLink" rel="icon" type="image/png" href="Imgs/mysticalFlask.png">
+    <title>Inactive Testing</title>
+</head>
+<body>
+    <div id="promptContainer" class="modalContainer">
+        <div id="prompt">
+            <h3 id="promptTitle" style="text-align:center"></h3>
+            <input id="promptInput" type="text" placeholder="Enter text">
+            <button id="promptButton">Submit</button>
+        </div>
+    </div>
+    <div id="alertContainer" class="modalContainer">
+        <div id="alert">
+            <h3 id="alertTitle" style="text-align:center">Welcome back gamer!</h3>
+            <p id="alertContent" style="text-align:center">New things have been added since last time</p>
+            <button id="closeAlert" onclick="closeModal(0)">Thanks!</button>
+            <br>
+        </div>
+    </div>
+    <div id="confirmContainer" class="modalContainer">
+        <div id="confirm" class="flexCol">
+            <h3 id="confirmTitle" style="text-align:center">Are you sure?</h3>
+            <p id="confirmContent" style="margin-bottom:1vh;text-align:center">New things have been added since last time</p>
+            <div class="flexRow">
+                <button id="noConfirm" class="lockedResearch" style="margin-right:0.5vw">No!</button>
+                <button id="yesConfirm" class="unlockedResearch" style="margin-left:0.5vw">Yes!</button>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div id="mainHeader" class="flexRow">
+        <div class="credit">
+            <p id="greenEnergyText" style="color:#51e761">0.00</p>
+            <img src="Imgs/greenEnergy.png">
+        </div>
+        <div class="credit">
+            <img src="Imgs/goldenFlask.png">
+            <p id="goldenFlaskText" style="color:var(--prestige-color)">0.00 Golden Flasks</p>
+        </div>
+    </div>
+    <div id="tabButtonHolder" class="flexRow">
+        <button id="tabButton0">Testing</button>
+        <button id="tabButton1">Brewing</button>
+        <button id="tabButton2">Filling</button>
+        <button id="tabButton3">Prestige</button>
+        <button id="tabButton4">Achievements</button>
+        <button id="tabButton5">Settings</button>
+    </div>
+    <div id="testingTab" class="flexCol tabHolder">
+        <div class="flexRow">
+            <div id="currentTestHolder" class="testHolder flexCol">
+                <img src="Imgs/redFlask.png">
+                <p>-=Red Flask=-<br>Time to Test: 0.00s<br>Cost: None</p>
+                <button>Test Red Flask</button>
+            </div>
+            <div id="nextTestHolder" class="testHolder flexCol">
+                <img src="Imgs/questionFlask.png">
+                <p>-=???=-<br>Time to Test: 0.00s<br>Cost: None</p>
+            </div>
+        </div>
+    </div>
+    <div id="brewingTab" class="flexCol tabHolder">
+
+    </div>
+    <div id="fillingTab" class="flexCol tabHolder">
+
+    </div>
+    <div id="prestigeTab" class="flexCol tabHolder">
+
+    </div>
+    <div id="achievementsTab" class="flexCol tabHolder">
+        
+    </div>
+    <div id="settingsTab" class="flexCol tabHolder">
+        <div id="settingsButtonHolder" class="flexRow" style="margin-bottom:1vh">
+            <button onclick="save()">Save Game</button>
+            <button onclick="exportSave()">Export Save</button>
+            <button onclick="createPrompt('Import your save',0)">Import Save</button>
+            <button class="locked" onclick="createConfirmation('reset')">Delete Save (Exports)</button>
+        </div>
+        <a style="margin-bottom:1vh">Discord!</a>
+        <strong style="margin-bottom:1vh">A special thank you to CryptoGrounds for allowing me to use some of his ideas to make a knockoff of <a href="https://store.steampowered.com/app/1482860/Idle_Research/">Idle Research</a></strong>
+        <div id="changelogHolder">
+            <h3>Current Version: v0.0.0</h3>
+        </div>
+    </div>
+</body>
+    <script src="JS/Internal/BreakEternity.js"></script>
+    <script src="JS/Internal/Cache.js"></script>
+    <script src="JS/Internal/Formatting.js"></script>
+    <script src="JS/Internal/MyMath.js"></script>
+    <script src="JS/data.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/update.js"></script>
+</html>

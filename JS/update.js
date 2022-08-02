@@ -1,0 +1,4 @@
+function updateHTML() {
+    //Globals
+   
+}

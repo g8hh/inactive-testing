@@ -1,0 +1,186 @@
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('IBMPlexMono-Medium.ttf');
+}
+
+:root {
+    --bg-color: #636b6b;
+    --header-color: whitesmoke;
+    --locked-color: #812626;
+    --unlocked-color: #2f8126;
+    --maxed-color: #267081;
+    --prestige-color: #f3e96e;
+}
+
+/*Globals*/
+* {
+    margin: 0%;
+    font-family: 'IBM Plex Mono';
+    color: whitesmoke;
+}
+body {
+    user-select: none;
+    background-color: var(--bg-color);
+}
+button {
+    user-select: none;
+    background-color: var(--bg-color);
+    border-width: 2px;
+    border-color: whitesmoke;
+    border-style: solid;
+    transition-duration: 0.5s;
+}
+button:hover {
+    background-color: whitesmoke;
+    color: var(--bg-color);
+    
+    transition-duration: 0.5s;
+}
+img {height: 3.25em; width: 3.25em;}
+h1,h2,h3,h4 { margin-bottom: 1vh;}
+/*Classes*/
+.flexCol {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.flexRow {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flexCol .flexEgg {
+    width: 300px;
+    height: 420px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.modalContainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6969;
+    padding: 5px;
+    border-radius: 3px;
+    border: 4px solid;
+    background-color: var(--bg-color);
+}
+.tabHolder {padding:1vw 1vh 1vw 1vh;}
+
+
+.locked {color:whitesmoke;border-color: var(--locked-color);}
+.locked:hover {color: whitesmoke;border-color: var(--locked-color);background-color: var(--locked-color);}
+.unlocked {color:whitesmoke;border-color: var(--unlocked-color);}
+.unlocked:hover {color: whitesmoke;border-color: var(--unlocked-color);background-color: var(--unlocked-color);}
+.maxed {color: whitesmoke;border-color: var(--maxed-color);}
+.maxed:hover {color: whitesmoke;border-color: var(--maxed-color);background-color: var(--maxed-color);}
+
+.achLock {width: 2em;height: 2em;border: 2px solid whitesmoke;border-radius: 2px;padding: 3px;margin: 4px;}
+.achUnlock {width: 2em;height: 2em;border: 2px solid whitesmoke;border-radius: 2px;padding: 3px;background-color: var(--unlocked-color);margin: 4px;}
+.achPlaceholder {width: 2em;height: 2em;border: 2px solid whitesmoke;border-radius: 2px;padding: 3px;margin: 4px;}
+
+.testHolder {height:25vh; width:10vw; border:2px solid whitesmoke;margin:1em}
+.testHolder p {text-align: center;}
+.testHolder img {border:2px solid whitesmoke}
+
+.credit {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.credit img {width: 1.5em; height: 1.5em; margin-right:1em;}
+.credit a, .credit p {text-align: center; font-size: 1.2em;}
+
+.badge-red {
+    background-color: var(--locked-color);
+    color: whitesmoke;
+    padding: 2px 4px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.badge-green {
+    background-color: var(--unlocked-color);
+    color: whitesmoke;
+    padding: 2px 4px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.badge-blue {
+    background-color: var(--maxed-color);
+    color: whitesmoke;
+    padding: 2px 4px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.badge-yellow {
+    background-color: #c7cf26;
+    color: #363636;
+    padding: 2px 4px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.notifyjs-bootstrap-base {
+	font-weight: bold;
+	padding: 8px 15px 8px 14px;
+	background-color: #fcf8e3;
+	border: 5px solid #fbeed5;
+	white-space: nowrap;
+	padding-left: 15px;
+	background-repeat: no-repeat;
+	background-position: 3px 7px;
+    border-radius: 4px;
+}
+.notifyjs-bootstrap-error {
+	color: whitesmoke;
+	background-color: #bf352d;
+	border-color: #9e160f;
+}
+.notifyjs-bootstrap-success {
+	color: whitesmoke;
+	background-color: #1eb93a;
+	border-color: #0c8021;
+}
+.notifyjs-bootstrap-info {
+	color: whitesmoke;
+	background-color: #3b8dff;
+	border-color: #006aff;
+}
+.notifyjs-bootstrap-warn {
+	color: whitesmoke;
+	background-color: #DBD800;
+	border-color: #BAB700;
+}
+
+
+/*IDs*/
+#researchCol {margin:4px;}
+#researchCol button {margin-bottom: 1vh;}
+
+.notifyjs-corner, .notifyjs-hidable , .notifyjs-container, .notifyjs-container div span { background-color: rgba(0, 0, 0, 0); color:black;}
+#planetRow img {width: 5em; height: 5em; margin:1em}
+
+#changelogHolder h4, #changelogHolder h3, #changelogHolder p {margin-bottom: 1vh;}
+#changelogHolder {max-width: 85%;}
+
+#mainHeader h2, #mainHeader div {margin: 1vh}
+
+#promptInput {background-color: var(--bg-color); border: 2px solid; border-radius: 2px;}
+
+#tabButtonHolder button, #settingsButtonHolder button {margin: 0.5vh;}
+/*
+<div class="notifyjs-wrapper notifyjs-hidable">
+	<div class="notifyjs-arrow"></div>
+	<div class="notifyjs-container" style=""><div class="notifyjs-bootstrap-base notifyjs-bootstrap-info">
+<span data-notify-text="">Hello World</span>
+</div>
+*/
