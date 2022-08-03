@@ -9,6 +9,16 @@
     --unlocked-color: #2f8126;
     --maxed-color: #267081;
     --prestige-color: #f3e96e;
+    /*Flask/tube colors*/
+    --red-color: #ff4444;
+    --orange-color: #ff8f44;
+    --yellow-color: #fffa44;
+    --green-color: #44ff4d;
+    --blue-color: #44caff;
+    --purple-color: #9444ff;
+    --pink-color: #fe44ff;
+    --white-color: #ffffff;
+    --black-color: #000000;
 }
 
 /*Globals*/
@@ -71,20 +81,24 @@ h1,h2,h3,h4 { margin-bottom: 1vh;}
 .tabHolder {padding:1vw 1vh 1vw 1vh;}
 
 
-.locked {color:whitesmoke;border-color: var(--locked-color);}
-.locked:hover {color: whitesmoke;border-color: var(--locked-color);background-color: var(--locked-color);}
-.unlocked {color:whitesmoke;border-color: var(--unlocked-color);}
-.unlocked:hover {color: whitesmoke;border-color: var(--unlocked-color);background-color: var(--unlocked-color);}
-.maxed {color: whitesmoke;border-color: var(--maxed-color);}
-.maxed:hover {color: whitesmoke;border-color: var(--maxed-color);background-color: var(--maxed-color);}
+.locked {color: var(--red-color);border-color: var(--red-color);}
+.locked:hover {color: whitesmoke;border-color: var(--red-color);background-color: var(--red-color);}
+.unlocked {color:var(--green-color);border-color: var(--green-color);}
+.unlocked:hover {color: whitesmoke;border-color: var(--green-color);background-color: var(--green-color);}
+.maxed {color: var(--blue-color);border-color: var(--blue-color);}
+.maxed:hover {color: whitesmoke;border-color: var(--blue-color);background-color: var(--blue-color);}
 
 .achLock {width: 2em;height: 2em;border: 2px solid whitesmoke;border-radius: 2px;padding: 3px;margin: 4px;}
 .achUnlock {width: 2em;height: 2em;border: 2px solid whitesmoke;border-radius: 2px;padding: 3px;background-color: var(--unlocked-color);margin: 4px;}
 .achPlaceholder {width: 2em;height: 2em;border: 2px solid whitesmoke;border-radius: 2px;padding: 3px;margin: 4px;}
 
-.testHolder {height:25vh; width:10vw; border:2px solid whitesmoke;margin:1em}
+.testHolder {height:25vh; width:20vw; border:2px solid whitesmoke;margin:1em}
 .testHolder p {text-align: center;}
 .testHolder img {border:2px solid whitesmoke}
+
+.brewHolder {height:25vh; width:5vw; border:2px solid whitesmoke;margin:1em}
+.brewHolder p {text-align: center;}
+
 
 .credit {
     display: flex;
