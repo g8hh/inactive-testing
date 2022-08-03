@@ -5,9 +5,9 @@
 
 :root {
     --bg-color: #666d6d;
-    --locked-color: #812626;
-    --unlocked-color: #2f8126;
-    --maxed-color: #267081;
+    --locked-color: #c13e3e;
+    --unlocked-color: #3ec14b;
+    --maxed-color: #3eb6c1;
     --prestige-color: #f3e96e;
     /*Flask/tube colors*/
     --red-color: #ff4444;
@@ -81,12 +81,12 @@ h1,h2,h3,h4 { margin-bottom: 1vh;}
 .tabHolder {padding:1vw 1vh 1vw 1vh;}
 
 
-.locked {color: var(--red-color);border-color: var(--red-color);}
-.locked:hover {color: whitesmoke;border-color: var(--red-color);background-color: var(--red-color);}
-.unlocked {color:var(--green-color);border-color: var(--green-color);}
-.unlocked:hover {color: whitesmoke;border-color: var(--green-color);background-color: var(--green-color);}
-.maxed {color: var(--blue-color);border-color: var(--blue-color);}
-.maxed:hover {color: whitesmoke;border-color: var(--blue-color);background-color: var(--blue-color);}
+.locked {border-color: var(--locked-color);}
+.locked:hover {color:whitesmoke;border-color: var(--locked-color);background-color: var(--locked-color);}
+.unlocked {border-color: var(--unlocked-color);}
+.unlocked:hover {color:whitesmoke;border-color: var(--unlocked-color);background-color: var(--unlocked-color);}
+.maxed {border-color: var(--maxed-color);}
+.maxed:hover {color:whitesmoke;border-color: var(--maxed-color);background-color: var(--maxed-color);}
 
 .achLock {width: 2em;height: 2em;border: 2px solid whitesmoke;border-radius: 2px;padding: 3px;margin: 4px;}
 .achUnlock {width: 2em;height: 2em;border: 2px solid whitesmoke;border-radius: 2px;padding: 3px;background-color: var(--unlocked-color);margin: 4px;}
