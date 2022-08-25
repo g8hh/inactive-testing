@@ -5,6 +5,7 @@ function getDefaultObject() {
         greenEnergy: D(50),
         flaskTested: new Array(9).fill(false),
         flaskAmounts: new Array(9).fill(D(0)),
+        juiceAmounts: new Array(9).fill(D(0)),
         currentUnlockTime: 0,
         flaskTestIndex: 0,
         buyAmounts: [0,0,0],

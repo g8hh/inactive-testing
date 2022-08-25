@@ -96,7 +96,7 @@ h1,h2,h3,h4 { margin-bottom: 1vh;}
 .testHolder p {text-align: center;}
 .testHolder img {border:2px solid whitesmoke}
 
-.brewHolder {height:25vh; width:5vw; border:2px solid whitesmoke;margin:1em}
+.brewHolder {height:25vh; width:6vw; border:2px solid whitesmoke;margin:1em;padding: .25em}
 .brewHolder p {text-align: center;}
 
 
