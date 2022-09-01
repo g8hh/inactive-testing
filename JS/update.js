@@ -7,4 +7,7 @@ function updateHTML() {
     else if(data.currentTab === 1) {
         updateBrewHTML()
     }
+    else if(data.currentTab === 2) {
+        updateFillHTML()
+    }
 }
