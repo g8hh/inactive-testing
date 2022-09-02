@@ -1,6 +1,7 @@
 function updateHTML() {
     //Globals
     DOMCacheGetOrSet(`greenEnergyText`).innerText = `${formatSci(data.greenEnergy)} [+${formatSci(greenEnergyGain)}/s]`
+    DOMCacheGetOrSet('tabButton4').style.display = data.flaskTested[2] ? 'block' : 'none'
     if(data.currentTab === 0) {
         updateTestHTML()
     }
