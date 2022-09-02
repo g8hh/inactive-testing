@@ -11,6 +11,7 @@ function updatePrestige() {
 
 function prestige() {
     if(data.flaskTested[2] && data.greenEnergy.gte(2.5e5)) {
+        data.goldenFlasks = data.goldenFlasks.plus(goldenFlaskGain)
         for(let i = 0; i < flaskData.length; i++) {
             data.flaskTested[i] = false
             data.flaskAmounts[i] = D(0)
