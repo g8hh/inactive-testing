@@ -102,6 +102,8 @@ h1,h2,h3,h4 { margin-bottom: 1vh;}
 .labHolder {height:25vh; max-width:10vw; border:2px solid whitesmoke;margin:1em;padding: .25em}
 .labHolder p {text-align: center;}
 
+.prestigeButton {border-color: var(--prestige-color);}
+.prestigeButton:hover {color:whitesmoke;border-color: var(--prestige-color);background-color: var(--prestige-color);}
 
 .credit {
     display: flex;

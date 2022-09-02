@@ -10,6 +10,7 @@ function generateEventHandlers() {
         DOMCacheGetOrSet(`brewButton${i}`).addEventListener('click', () => brewJuice(i))
         DOMCacheGetOrSet(`fillButton${i}`).addEventListener('click', () => fillFlask(i))
     }
+    DOMCacheGetOrSet('prestigeButton').addEventListener('click',() => createConfirmation('prestige'))
     console.log('Event Handlers Init...')
 }
 
@@ -21,6 +22,7 @@ function mainLoop() {
     diff = (Date.now()-data.time)*data.devSpeed/1000
     updateGreenEnergyGain()
     updateFlaskBoosts()
+    updatePrestige()
     data.greenEnergy = data.greenEnergy.plus(greenEnergyGain.times(diff))
     if(data.testing) 
         updateTest()
@@ -95,6 +97,15 @@ function createConfirmation(a) {
             document.getElementById('confirmContainer').style.display = 'block'
             document.getElementById('noConfirm').addEventListener('click', () => {closeModal(2)})
             document.getElementById('yesConfirm').addEventListener('click', () => {fullReset();closeModal(2)})
+            break
+        case 'prestige':
+            document.getElementById('confirmContainer').style.border = `4px solid var(--prestige-color)`
+            document.getElementById('confirmTitle').innerText = 'Are you sure you want to prestige?'
+            document.getElementById('confirmContent').innerText = 'This will reset all progress in exchange for Golden Flasks'
+            document.getElementById('confirm').style.display = 'block'
+            document.getElementById('confirmContainer').style.display = 'block'
+            document.getElementById('noConfirm').addEventListener('click', () => {closeModal(2)})
+            document.getElementById('yesConfirm').addEventListener('click', () => {prestige();closeModal(2)})
             break
     }
 }

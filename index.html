@@ -60,7 +60,7 @@
         <button id="tabButton1">Brewing</button>
         <button id="tabButton2">Filling</button>
         <button id="tabButton3">Lab</button>
-        <button id="tabButton4">Prestige</button>
+        <button id="tabButton4" class="prestigeButton">Prestige</button>
         <button id="tabButton5">Achievements</button>
         <button id="tabButton6">Settings</button>
     </div>
@@ -227,7 +227,9 @@
         </div>
     </div>
     <div id="prestigeTab" class="flexCol tabHolder">
-
+        <h3 style="color:var(--prestige-color)">Prestige!</h3>
+        <h4 id="goldenFlaskGainText" style="color:var(--prestige-color)">Gain +0.00 Golden Flasks on Prestige</h4>
+        <button id="prestigeButton" class="prestigeButton">Prestige!</button>
     </div>
     <div id="achievementsTab" class="flexCol tabHolder">
         
@@ -257,4 +259,5 @@
     <script src="JS/flasks.js"></script>
     <script src="JS/brewing.js"></script>
     <script src="JS/filling.js"></script>
+    <script src="JS/prestige.js"></script>
 </html>

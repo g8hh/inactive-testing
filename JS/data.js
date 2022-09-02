@@ -3,7 +3,9 @@ function D(x){return new Decimal(x)}
 function getDefaultObject() {
     return {
         greenEnergy: D(50),
+        goldenFlasks: D(0),
         flaskTested: new Array(9).fill(false),
+        flaskDiscovered: new Array(9).fill(false),
         flaskAmounts: new Array(9).fill(D(0)),
         juiceAmounts: new Array(9).fill(D(0)),
         testing: false,
@@ -13,7 +15,7 @@ function getDefaultObject() {
         time: Date.now(),
         currentTab: 0,
         settingsToggles: [],
-        currentUpdate: 'v1.1.5',
+        currentUpdate: 'v0.0.1',
         devSpeed: 1,
     }
 }

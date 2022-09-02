@@ -59,10 +59,10 @@ let flaskBoosts = new Array(8).fill(D(1))
 function updateTestHTML() {
     //Current Test UI
     if(data.flaskTestIndex < flaskData.length) {
-        if((DOMCacheGetOrSet('currentTestImg').getAttribute('src') !== `${flaskImgPath}${flaskData[data.flaskTestIndex].id}.png` && data.flaskTested[data.flaskTestIndex] === true)
-        || (DOMCacheGetOrSet('currentTestImg').getAttribute('src') !== `${flaskImgPath}questionFlask.png` && data.flaskTested[data.flaskTestIndex] === false))
-            DOMCacheGetOrSet('currentTestImg').setAttribute('src', data.flaskTested[data.flaskTestIndex] ? `${flaskImgPath}${flaskData[data.flaskTestIndex].id}.png` : `${flaskImgPath}questionFlask.png`)
-        DOMCacheGetOrSet('currentTestText').innerText = data.flaskTested[data.flaskTestIndex] ? 
+        if((DOMCacheGetOrSet('currentTestImg').getAttribute('src') !== `${flaskImgPath}${flaskData[data.flaskTestIndex].id}.png` && data.flaskDiscovered[data.flaskTestIndex] === true)
+        || (DOMCacheGetOrSet('currentTestImg').getAttribute('src') !== `${flaskImgPath}questionFlask.png` && data.flaskDiscovered[data.flaskTestIndex] === false))
+            DOMCacheGetOrSet('currentTestImg').setAttribute('src', data.flaskDiscovered[data.flaskTestIndex] ? `${flaskImgPath}${flaskData[data.flaskTestIndex].id}.png` : `${flaskImgPath}questionFlask.png`)
+        DOMCacheGetOrSet('currentTestText').innerText = data.flaskDiscovered[data.flaskTestIndex] ? 
         `-=${flaskData[data.flaskTestIndex].name}=-\nTime To Test: ${formatTime(flaskData[data.flaskTestIndex].unlockTime)}\nReq: ${formatSci(flaskData[data.flaskTestIndex].requirement)} ${data.flaskTestIndex !== 0 ? `${flaskData[data.flaskTestIndex-1]}` : 'Green Energy'}` :
         `-=???=-\nTime To Test: ${formatTime(flaskData[data.flaskTestIndex].unlockTime)}\nReq: ${formatSci(flaskData[data.flaskTestIndex].requirement)} ${data.flaskTestIndex !== 0 ? `${flaskData[data.flaskTestIndex-1].name}` : 'Green Energy'}`
     }
@@ -72,12 +72,12 @@ function updateTestHTML() {
         DOMCacheGetOrSet('currentTestText').innerText = ''
     }
     if(data.flaskTestIndex < flaskData.length-1) {
-        if((DOMCacheGetOrSet('nextTestImg').getAttribute('src') !== `${flaskImgPath}${flaskData[data.flaskTestIndex+1].id}.png` && data.flaskTested[data.flaskTestIndex+1] === true)
-        || (DOMCacheGetOrSet('nextTestImg').getAttribute('src') !== `${flaskImgPath}questionFlask.png` && data.flaskTested[data.flaskTestIndex+1] === false))
-            DOMCacheGetOrSet('nextTestImg').setAttribute('src', data.flaskTested[data.flaskTestIndex+1] ? `${flaskImgPath}${flaskData[data.flaskTestIndex+1].id}.png` : `${flaskImgPath}questionFlask.png`)
-        DOMCacheGetOrSet('nextTestText').innerText = data.flaskTested[data.flaskTestIndex+1] ? 
+        if((DOMCacheGetOrSet('nextTestImg').getAttribute('src') !== `${flaskImgPath}${flaskData[data.flaskTestIndex+1].id}.png` && data.flaskDiscovered[data.flaskTestIndex+1] === true)
+        || (DOMCacheGetOrSet('nextTestImg').getAttribute('src') !== `${flaskImgPath}questionFlask.png` && data.flaskDiscovered[data.flaskTestIndex+1] === false))
+            DOMCacheGetOrSet('nextTestImg').setAttribute('src', data.flaskDiscovered[data.flaskTestIndex+1] ? `${flaskImgPath}${flaskData[data.flaskTestIndex+1].id}.png` : `${flaskImgPath}questionFlask.png`)
+        DOMCacheGetOrSet('nextTestText').innerText = data.flaskDiscovered[data.flaskTestIndex+1] ? 
         `-=${flaskData[data.flaskTestIndex+1].name}=-\nTime To Test: ${formatTime(flaskData[data.flaskTestIndex+1].unlockTime)}\nReq: ${formatSci(flaskData[data.flaskTestIndex+1].requirement)} ${flaskData[data.flaskTestIndex]}` :
-        `-=???=-\nTime To Test: ${formatTime(flaskData[data.flaskTestIndex+1].unlockTime)}\nReq: ${formatSci(flaskData[data.flaskTestIndex+1].requirement)} ${data.flaskTested[data.flaskTestIndex] ? flaskData[data.flaskTestIndex].name : '??? Flask'}`
+        `-=???=-\nTime To Test: ${formatTime(flaskData[data.flaskTestIndex+1].unlockTime)}\nReq: ${formatSci(flaskData[data.flaskTestIndex+1].requirement)} ${data.flaskDiscovered[data.flaskTestIndex] ? flaskData[data.flaskTestIndex].name : '??? Flask'}`
     }
     else {
         if((DOMCacheGetOrSet('nextTestImg').getAttribute('src') !== `${flaskImgPath}maxFlask.png`))
@@ -88,7 +88,7 @@ function updateTestHTML() {
     DOMCacheGetOrSet('progressText').innerText = `${formatSci(D((data.currentUnlockTime / flaskData[data.flaskTestIndex].unlockTime) * 100))}%`
     DOMCacheGetOrSet('currentTestButton').style.display = data.flaskTestIndex >= flaskData.length-1 ? 'none' : 'block'
     if(data.flaskTestIndex < flaskData.length) {
-        DOMCacheGetOrSet('currentTestButton').innerText = data.flaskTested[data.flaskTestIndex] ? `Test ${flaskColors[data.flaskTestIndex]} Flask` : `Test ??? Flask`
+        DOMCacheGetOrSet('currentTestButton').innerText = data.flaskDiscovered[data.flaskTestIndex] ? `Test ${flaskColors[data.flaskTestIndex]} Flask` : `Test ??? Flask`
         if(data.flaskTestIndex === 0)
             DOMCacheGetOrSet('currentTestButton').classList = data.greenEnergy.gte(flaskData[0].requirement) ? 'unlocked' : 'locked'
         else
@@ -107,7 +107,8 @@ function startTest() {
 function updateTest() {
     data.currentUnlockTime += diff;
     if(data.currentUnlockTime >= flaskData[data.flaskTestIndex].unlockTime) {
-        if(!data.flaskTested[data.flaskTestIndex]) data.flaskTested[data.flaskTestIndex] = true
+        if(!data.flaskDiscovered[data.flaskTestIndex]) data.flaskDiscovered[data.flaskTestIndex] = true
+        data.flaskTested[data.flaskTestIndex] = true
         data.testing = false
         data.currentUnlockTime = 0
         data.flaskTestIndex++
@@ -130,5 +131,5 @@ function updateLabHTML() {
 
 function updateFlaskBoosts() {
     for(let i = 0; i < flaskBoosts.length; i++)
-        flaskBoosts[i] = data.flaskAmounts[i+1].gt(0) ? D(1).plus(Decimal.sqrt(data.flaskAmounts[i+1])) : D(1)
+        flaskBoosts[i] = data.flaskAmounts[i+1].gt(0) ? D(1).plus(Decimal.sqrt(data.flaskAmounts[i+1].div(5))) : D(1)
 }
