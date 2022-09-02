@@ -1,12 +1,13 @@
 let goldenFlaskGain = D(0)
-
+let goldenFlaskBoost
 function updatePrestigeHTML() {
-    DOMCacheGetOrSet('goldenFlaskGainText').innerText = data.greenEnergy.lt(2.5e5) ? `${formatSci(data.greenEnergy)}/${formatSci(2.5e5)}` : `Gain +${formatSci(goldenFlaskGain)} Golden Flasks on Prestige`
+    DOMCacheGetOrSet('goldenFlaskGainText').innerText = data.greenEnergy.lt(2.5e5) ? `${formatSci(data.greenEnergy)}/${formatSci(2.5e5)} Green Energy` : `Gain +${formatSci(goldenFlaskGain)} Golden Flasks on Prestige`
     DOMCacheGetOrSet('prestigeButton').classList = data.greenEnergy.lt(2.5e5) ? 'locked' : 'prestigeButton'
 }
 
 function updatePrestige() {
     goldenFlaskGain = Decimal.sqrt(data.greenEnergy.div(1.25e5))
+    goldenFlaskBoost = data.goldenFlasks.gt(0) ? Decimal.log10(data.goldenFlasks) : D(1)
 }
 
 function prestige() {

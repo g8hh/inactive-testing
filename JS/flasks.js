@@ -109,6 +109,7 @@ function updateTest() {
     if(data.currentUnlockTime >= flaskData[data.flaskTestIndex].unlockTime) {
         if(!data.flaskDiscovered[data.flaskTestIndex]) data.flaskDiscovered[data.flaskTestIndex] = true
         data.flaskTested[data.flaskTestIndex] = true
+        $.notify(`${flaskData[data.flaskTestIndex].name} Tested!`,'success')
         data.testing = false
         data.currentUnlockTime = 0
         data.flaskTestIndex++
