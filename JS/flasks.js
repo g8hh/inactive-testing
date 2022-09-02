@@ -55,6 +55,7 @@ const flaskData = [
     },
 ]
 let greenEnergyGain = D(0)
+let flaskBoosts = new Array(8).fill(D(1))
 function updateTestHTML() {
     //Current Test UI
     if(data.flaskTestIndex < flaskData.length) {
@@ -114,15 +115,20 @@ function updateTest() {
 }
 
 function updateGreenEnergyGain() {
-    greenEnergyGain = data.flaskAmounts[0]
+    greenEnergyGain = (data.flaskAmounts[0].times(0.5)).times(flaskBoosts[0]).times(flaskBoosts[1]).times(flaskBoosts[2]).times(flaskBoosts[3]).times(flaskBoosts[4]).times(flaskBoosts[5]).times(flaskBoosts[6]).times(flaskBoosts[7])
 }
 
 function updateLabHTML() {
     for(let i = 0; i < flaskData.length; i++) {
         if(data.flaskTested[i]) {
             DOMCacheGetOrSet(`labText${i}`).innerText = i === 0 ? `${flaskColors[i]} Flask - ${formatSci(data.flaskAmounts[i])}\n+${formatSci(greenEnergyGain)} Green Energy` : 
-            `${flaskColors[i]} Flask - ${formatSci(data.flaskAmounts[i])}\nRed Flask is 0.00x Stronger`
+            `${flaskColors[i]} Flask - ${formatSci(data.flaskAmounts[i])}\n${flaskData[i-1].name} is ${formatSci(flaskBoosts[i-1])}x Stronger`
         }
         DOMCacheGetOrSet(`labHold${i}`).style.display = data.flaskTested[i] ? 'flex' : 'none'
     }
+}
+
+function updateFlaskBoosts() {
+    for(let i = 0; i < flaskBoosts.length; i++)
+        flaskBoosts[i] = data.flaskAmounts[i+1].gt(0) ? D(1).plus(Decimal.sqrt(data.flaskAmounts[i+1])) : D(1)
 }

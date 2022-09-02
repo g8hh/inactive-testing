@@ -20,6 +20,7 @@ function addOfflineProgress(time) {
 function mainLoop() {
     diff = (Date.now()-data.time)*data.devSpeed/1000
     updateGreenEnergyGain()
+    updateFlaskBoosts()
     data.greenEnergy = data.greenEnergy.plus(greenEnergyGain.times(diff))
     if(data.testing) 
         updateTest()

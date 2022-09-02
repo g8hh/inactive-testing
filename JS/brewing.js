@@ -1,4 +1,4 @@
-const baseBrewCost = [D(10),D(20),D(40),D(60),D(80),D(150),D(200),D(250),D(500)]
+const baseBrewCost = [D(25),D(50),D(100),D(250),D(500),D(1e3),D(2.5e3),D(5e3),D(1e4)]
 const juiceColors = ['Red','Orange','Yellow','Green','Blue','Purple','Pink','White','Black']
 function updateBrewHTML() {
     for(let i = 0; i < flaskData.length; i++) {
