@@ -5,7 +5,11 @@ let diff = 0;
 function generateEventHandlers() {
     for(let i = 0; i < tabIDs.length; i++)
         DOMCacheGetOrSet(`tabButton${i}`).addEventListener('click', () => changeTab(i))
-
+    DOMCacheGetOrSet('currentTestButton').addEventListener('click', () => startTest())
+    for(let i = 0; i < data.juiceAmounts.length; i++) {
+        DOMCacheGetOrSet(`brewButton${i}`).addEventListener('click', () => brewJuice(i))
+        DOMCacheGetOrSet(`fillButton${i}`).addEventListener('click', () => fillFlask(i))
+    }
     console.log('Event Handlers Init...')
 }
 
@@ -15,7 +19,10 @@ function addOfflineProgress(time) {
 
 function mainLoop() {
     diff = (Date.now()-data.time)*data.devSpeed/1000
-    
+    updateGreenEnergyGain()
+    data.greenEnergy = data.greenEnergy.plus(greenEnergyGain.times(diff))
+    if(data.testing) 
+        updateTest()
     updateHTML()
     /*
     if(DOMCacheGetOrSet('faviconLink').getAttribute('href') !== `${eggImgPath}${eggData[data.currentEgg].id}.png`)
@@ -23,7 +30,7 @@ function mainLoop() {
         */
     data.time = Date.now()
 }
-const tabIDs = ['testing','brewing','filling','prestige','achievements','settings']
+const tabIDs = ['testing','brewing','filling','lab','prestige','achievements','settings']
 function changeTab(i) {
     
     data.currentTab = i

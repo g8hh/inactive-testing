@@ -99,6 +99,9 @@ h1,h2,h3,h4 { margin-bottom: 1vh;}
 .brewHolder {height:25vh; width:6vw; border:2px solid whitesmoke;margin:1em;padding: .25em}
 .brewHolder p {text-align: center;}
 
+.labHolder {height:25vh; max-width:10vw; border:2px solid whitesmoke;margin:1em;padding: .25em}
+.labHolder p {text-align: center;}
+
 
 .credit {
     display: flex;
