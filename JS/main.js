@@ -1,6 +1,7 @@
 const flaskImgPath = 'Imgs/flasks/'
 const dropImgPath = 'Imgs/drops/'
 let diff = 0;
+const buyAmounts = [D(1),D(10),D(100),D(1e3)]
 
 function generateEventHandlers() {
     for(let i = 0; i < tabIDs.length; i++)
@@ -12,10 +13,6 @@ function generateEventHandlers() {
     }
     DOMCacheGetOrSet('prestigeButton').addEventListener('click',() => createConfirmation('prestige'))
     console.log('Event Handlers Init...')
-}
-
-function addOfflineProgress(time) {
-    
 }
 
 function mainLoop() {

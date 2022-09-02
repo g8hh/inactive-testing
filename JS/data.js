@@ -95,9 +95,7 @@ window.onload = function (){
     load()
     generateEventHandlers()
     diff = (Date.now()-data.time)*data.devSpeed/1000
-    data.time = Date.now()
     $.notify('Welcome Back!\nYou were gone for ' + formatTime(diff), 'info')
-    addOfflineProgress(diff)
     changeTab(data.currentTab)
     $.notify('Game Loaded','info')
 }
