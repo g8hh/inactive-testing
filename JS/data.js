@@ -15,7 +15,8 @@ function getDefaultObject() {
         time: Date.now(),
         currentTab: 0,
         settingsToggles: [],
-        currentUpdate: 'v0.0.1',
+        buyAmounts: [0,0],
+        currentUpdate: 'v0.0.2',
         devSpeed: 1,
     }
 }
@@ -97,6 +98,8 @@ window.onload = function (){
     diff = (Date.now()-data.time)*data.devSpeed/1000
     $.notify('Welcome Back!\nYou were gone for ' + formatTime(diff), 'info')
     changeTab(data.currentTab)
+    for(let i = 0; i < data.buyAmounts; i++)
+        DOMCacheGetOrSet(`buyAmount${i}`).innerText = `Buy Amount: ${formatSci(buyAmounts[data.buyAmounts[i]])}`
     $.notify('Game Loaded','info')
 }
 //full reset

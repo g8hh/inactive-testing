@@ -12,7 +12,15 @@ function generateEventHandlers() {
         DOMCacheGetOrSet(`fillButton${i}`).addEventListener('click', () => fillFlask(i))
     }
     DOMCacheGetOrSet('prestigeButton').addEventListener('click',() => createConfirmation('prestige'))
+    for(let i = 0; i < 2; i++)
+        DOMCacheGetOrSet(`buyAmount${i}`).addEventListener('click', () => updateBuyAmount(i))
     console.log('Event Handlers Init...')
+}
+
+function updateBuyAmount(i) {
+    if(data.buyAmounts[i] < 4) data.buyAmounts[i]++
+    if(data.buyAmounts[i] >= 4) data.buyAmounts[i] = 0
+    DOMCacheGetOrSet(`buyAmount${i}`).innerText = `Buy Amount: ${formatSci(buyAmounts[data.buyAmounts[i]])}`
 }
 
 function mainLoop() {

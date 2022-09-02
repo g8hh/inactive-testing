@@ -3,8 +3,8 @@ const juiceColors = ['Red','Orange','Yellow','Green','Blue','Purple','Pink','Whi
 function updateBrewHTML() {
     for(let i = 0; i < flaskData.length; i++) {
         if(data.flaskTested[i]) {
-            DOMCacheGetOrSet(`brewButton${i}`).innerText = `Brew\n-${formatSci(baseBrewCost[i])} Energy`
-            DOMCacheGetOrSet(`brewButton${i}`).classList = data.greenEnergy.gte(baseBrewCost[i]) ? 'unlocked' : 'locked'
+            DOMCacheGetOrSet(`brewButton${i}`).innerText = `Brew\n-${formatSci(baseBrewCost[i].times(buyAmounts[data.buyAmounts[0]]))} Energy`
+            DOMCacheGetOrSet(`brewButton${i}`).classList = data.greenEnergy.gte(baseBrewCost[i].times(buyAmounts[data.buyAmounts[0]])) ? 'unlocked' : 'locked'
             DOMCacheGetOrSet(`brewText${i}`).innerText = `${juiceColors[i]} Juice\n${formatSci(data.juiceAmounts[i])}`
         }
         DOMCacheGetOrSet(`brewHold${i}`).style.display = data.flaskTested[i] ? 'flex' : 'none'
@@ -12,7 +12,7 @@ function updateBrewHTML() {
 }
 
 function brewJuice(i) {
-    if(data.greenEnergy.lt(baseBrewCost[i])) return
-    data.greenEnergy = data.greenEnergy.sub(baseBrewCost[i])
-    data.juiceAmounts[i] = data.juiceAmounts[i].plus(1)
+    if(data.greenEnergy.lt(baseBrewCost[i].times(buyAmounts[data.buyAmounts[0]]))) return
+    data.greenEnergy = data.greenEnergy.sub(baseBrewCost[i].times(buyAmounts[data.buyAmounts[0]]))
+    data.juiceAmounts[i] = data.juiceAmounts[i].plus(buyAmounts[data.buyAmounts[0]])
 }
