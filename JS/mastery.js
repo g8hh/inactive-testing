@@ -11,5 +11,30 @@ function updateMastery() {
 }
 
 function mastery() {
-    
+    if(!data.mastering) {
+        data.goldenFlasks = data.goldenFlasks.plus(goldenFlaskGain)
+        for(let i = 0; i < flaskData.length; i++) {
+            data.flaskTested[i] = false
+            data.flaskAmounts[i] = D(0)
+            data.juiceAmounts[i] = D(0)
+        }
+        data.greenEnergy = D(50)
+        data.testing = false
+        data.currentUnlockTime = 0
+        data.flaskTestIndex = 0
+        data.mastering = true
+    }
+    else {
+        data.goldenFlasks = data.goldenFlasks.plus(goldenFlaskGain)
+        for(let i = 0; i < flaskData.length; i++) {
+            data.flaskTested[i] = false
+            data.flaskAmounts[i] = D(0)
+            data.juiceAmounts[i] = D(0)
+        }
+        data.greenEnergy = D(50)
+        data.testing = false
+        data.currentUnlockTime = 0
+        data.flaskTestIndex = 0
+        data.mastering = false
+    }
 }

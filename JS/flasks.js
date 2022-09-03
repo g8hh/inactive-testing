@@ -88,11 +88,14 @@ function updateTestHTML() {
     DOMCacheGetOrSet('progressText').innerText = `${formatSci(D((data.currentUnlockTime / (flaskData[data.flaskTestIndex].unlockTime * goldenFlaskEffect)) * 100))}%`
     DOMCacheGetOrSet('currentTestButton').style.display = data.flaskTestIndex >= flaskData.length-1 ? 'none' : 'block'
     if(data.flaskTestIndex < flaskData.length) {
-        DOMCacheGetOrSet('currentTestButton').innerText = data.flaskDiscovered[data.flaskTestIndex] ? `Test ${flaskColors[data.flaskTestIndex]} Flask` : `Test ??? Flask`
+        if(!data.testing)
+            DOMCacheGetOrSet('currentTestButton').innerText = data.flaskDiscovered[data.flaskTestIndex] ? `Test ${flaskColors[data.flaskTestIndex]} Flask` : `Test ??? Flask`
+        else 
+            DOMCacheGetOrSet('currentTestButton').innerText = data.flaskDiscovered[data.flaskTestIndex] ? `Testing ${flaskColors[data.flaskTestIndex]} Flask` : `Testing ??? Flask`
         if(data.flaskTestIndex === 0)
-            DOMCacheGetOrSet('currentTestButton').classList = data.greenEnergy.gte(flaskData[0].requirement) ? 'unlocked' : 'locked'
+            DOMCacheGetOrSet('currentTestButton').classList = data.greenEnergy.gte(flaskData[0].requirement) && !data.testing ? 'unlocked' : 'locked'
         else
-            DOMCacheGetOrSet('currentTestButton').classList = data.flaskAmounts[data.flaskTestIndex-1].gte(flaskData[data.flaskTestIndex].requirement) ? 'unlocked' : 'locked'
+            DOMCacheGetOrSet('currentTestButton').classList = data.flaskAmounts[data.flaskTestIndex-1].gte(flaskData[data.flaskTestIndex].requirement) && !data.testing ? 'unlocked' : 'locked'
     }
 }
 

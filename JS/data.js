@@ -16,7 +16,7 @@ function getDefaultObject() {
         buyAmounts: [0,0,0],
         time: Date.now(),
         currentTab: 0,
-        settingsToggles: [],
+        settingsToggles: [true,true],
         buyAmounts: [0,0],
         currentUpdate: 'v0.0.2',
         devSpeed: 1,

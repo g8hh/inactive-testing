@@ -12,6 +12,7 @@ function generateEventHandlers() {
         DOMCacheGetOrSet(`fillButton${i}`).addEventListener('click', () => fillFlask(i))
     }
     DOMCacheGetOrSet('prestigeButton').addEventListener('click',() => createConfirmation('prestige'))
+    DOMCacheGetOrSet('masteryButton').addEventListener('click',() => createConfirmation('mastery'))
     for(let i = 0; i < 2; i++)
         DOMCacheGetOrSet(`buyAmount${i}`).addEventListener('click', () => updateBuyAmount(i))
     console.log('Event Handlers Init...')
@@ -87,6 +88,10 @@ function createPrompt(a,b) {
     }
 }
 function createConfirmation(a) {
+    if((!data.flaskTested[2] || data.greenEnergy.lt(2.5e5) || data.mastering) && a === 'prestige') return
+    if(a === 'prestige' && !data.settingsToggles[0]) prestige()
+    if(a === 'mastery' && !data.settingsToggles[1]) mastery()
+    
     let old_element = document.getElementById("yesConfirm");
     let new_element = old_element.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
@@ -112,6 +117,14 @@ function createConfirmation(a) {
             document.getElementById('noConfirm').addEventListener('click', () => {closeModal(2)})
             document.getElementById('yesConfirm').addEventListener('click', () => {prestige();closeModal(2)})
             break
+        case 'mastery': 
+            document.getElementById('confirmContainer').style.border = `4px solid var(--mastery-color)`
+            document.getElementById('confirmTitle').innerText = 'Are you sure you want to begin mastering?'
+            document.getElementById('confirmContent').innerText = 'This will trigger a prestige reset and start mastery.'
+            document.getElementById('confirm').style.display = 'block'
+            document.getElementById('confirmContainer').style.display = 'block'
+            document.getElementById('noConfirm').addEventListener('click', () => {closeModal(2)})
+            document.getElementById('yesConfirm').addEventListener('click', () => {mastery();closeModal(2)})
     }
 }
 function closeModal(i) {
