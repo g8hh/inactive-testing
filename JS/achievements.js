@@ -29,7 +29,6 @@ const achievementNames = [
         data.achievements[i] = true
         $.notify(`${achievementNames[i]} Unlocked!`,'success')
         updateAchClass()
-        updateFlaskAchievements()
     }
     function updateFlaskAchievements() {
         for(let i = 0; i < data.flaskDiscovered.length; i++) {
@@ -42,8 +41,22 @@ const achievementNames = [
             if(data.flaskDiscovered[i] === true) getAchievement(i)
         }
         //Energy
-        
+        const energyReqs = [1e3,1e6,1e9,1e12,1e15,1e18]
+        for(let i = 0; i < energyReqs.length; i++) {
+            if(data.greenEnergy.gte(energyReqs[i])) getAchievement(i + 9)
+        }
+        //Gold
+        const goldReqs = [100,1e4,1e6,1e8]
+        for(let i = 0; i < goldReqs.length; i++) {
+            if(data.goldenFlasks.gte(goldReqs[i])) getAchievement(i + 15)
+        }
+        //Mystical
+        const mysticalReqs = [100,1e3,1e4,1e5]
+        for(let i = 0; i < mysticalReqs.length; i++) {
+            if(data.mysticalFlasks.gte(mysticalReqs[i])) getAchievement(i + 19)
+        }
         updateAchUnlockedCount()
+        updateFlaskAchievements()
     }
     
     function updateAchClass() {
@@ -58,5 +71,5 @@ const achievementNames = [
         let unlocked = 0
         for(let i = 0; i < maxUnlock; i++)
             if(data.achievements[i] === true) unlocked++
-        DOMCacheGetOrSet('achPercentText').innerText = `Achievements Unlocked: ${toPlaces(unlocked,0,unlocked+1)}/${toPlaces(maxUnlock,0,maxUnlock+1)} (${format((unlocked / maxUnlock) * 100)}%)`
+        DOMCacheGetOrSet('achPercentText').innerText = `Achievements Unlocked: ${toPlaces(unlocked,0,unlocked+1)}/${toPlaces(maxUnlock,0,maxUnlock+1)} (${formatSci((unlocked / maxUnlock) * 100)}%)`
     }

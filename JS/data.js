@@ -43,7 +43,7 @@ function load() {
         createAlert("Welcome Back!",`The current version is ${getDefaultObject().currentUpdate}, View the Changelog (in settings) for details`,"812626")
         data.currentUpdate = getDefaultObject().currentUpdate
     }
-
+    updateAchClass()
 }
 //fix saves
 function fixSave(main=getDefaultObject(), data) {

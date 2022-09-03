@@ -41,6 +41,7 @@ function mainLoop() {
     if(data.testing) 
         updateTest()
     runAuto()
+    checkAchievements()
     updateHTML()
     /*
     if(DOMCacheGetOrSet('faviconLink').getAttribute('href') !== `${eggImgPath}${eggData[data.currentEgg].id}.png`)
