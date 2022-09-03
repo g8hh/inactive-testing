@@ -9,7 +9,7 @@ function updateMasteryHTML() {
 function updateMastery() {
     mysticalFlaskGain = data.mastering ? Decimal.log(data.greenEnergy.times(0.75),2.5) : D(0)
     data.mysticalFlasks = data.mastering ? data.mysticalFlasks.plus(mysticalFlaskGain.times(diff)) : data.mysticalFlasks
-    mysticalFlaskBoost = data.mysticalFlasks.gt(0) ? D(1).plus(Decimal.log10(data.mysticalFlasks)) : D(1)
+    mysticalFlaskBoost = data.mysticalFlasks.gt(0) && !data.mastering ? D(1).plus(Decimal.log10(data.mysticalFlasks)) : D(1)
 }
 
 function mastery() {

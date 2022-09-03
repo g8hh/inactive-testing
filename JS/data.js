@@ -12,6 +12,7 @@ function getDefaultObject() {
         juiceAmounts: new Array(9).fill(D(0)),
         autoPurchased: new Array(9).fill(false),
         autoActive: new Array(9).fill(false),
+        achievements: new Array(23).fill(false),
         testing: false,
         mastering: false,
         currentUnlockTime: 0,
