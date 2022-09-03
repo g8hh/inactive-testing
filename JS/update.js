@@ -21,4 +21,7 @@ function updateHTML() {
     else if(data.currentTab === 4) {
         updatePrestigeHTML()
     }
+    else if(data.currentTab === 5) {
+        updateMasteryHTML()
+    }
 }

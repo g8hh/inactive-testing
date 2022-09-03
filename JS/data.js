@@ -4,11 +4,13 @@ function getDefaultObject() {
     return {
         greenEnergy: D(50),
         goldenFlasks: D(0),
+        mysticalFlasks: D(0),
         flaskTested: new Array(9).fill(false),
         flaskDiscovered: new Array(9).fill(false),
         flaskAmounts: new Array(9).fill(D(0)),
         juiceAmounts: new Array(9).fill(D(0)),
         testing: false,
+        mastering: false,
         currentUnlockTime: 0,
         flaskTestIndex: 0,
         buyAmounts: [0,0,0],
