@@ -13,6 +13,10 @@ function generateEventHandlers() {
     }
     DOMCacheGetOrSet('prestigeButton').addEventListener('click',() => createConfirmation('prestige'))
     DOMCacheGetOrSet('masteryButton').addEventListener('click',() => createConfirmation('mastery'))
+
+    for(let i = 0; i < data.autoActive.length; i++)
+        DOMCacheGetOrSet(`auto${i}`).addEventListener('click', () => auto(i))
+    
     for(let i = 0; i < 2; i++)
         DOMCacheGetOrSet(`buyAmount${i}`).addEventListener('click', () => updateBuyAmount(i))
     for(let i = 0; i < data.settingsToggles.length; i++)
@@ -31,9 +35,12 @@ function mainLoop() {
     updateFlaskBoosts()
     updatePrestige()
     updateMastery()
+    if(data.bestGoldenFlasks.lt(data.goldenFlasks))
+        data.bestGoldenFlasks = data.goldenFlasks
     data.greenEnergy = !data.mastering ? data.greenEnergy.plus(greenEnergyGain.times(diff)) : data.greenEnergy.plus((greenEnergyGain.times(diff)).times(0.25))
     if(data.testing) 
         updateTest()
+    runAuto()
     updateHTML()
     /*
     if(DOMCacheGetOrSet('faviconLink').getAttribute('href') !== `${eggImgPath}${eggData[data.currentEgg].id}.png`)
