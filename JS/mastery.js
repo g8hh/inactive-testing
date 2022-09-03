@@ -1,5 +1,5 @@
 let mysticalFlaskGain = D(0)
-
+let mysticalFlaskBoost = D(1)
 function updateMasteryHTML() {
     DOMCacheGetOrSet('masteryButton').classList = !data.mastering ? 'masteryButton' : 'locked'
     DOMCacheGetOrSet('masteryButton').innerText = !data.mastering ? 'Start Mastering' : 'Stop Mastering'
@@ -8,6 +8,8 @@ function updateMasteryHTML() {
 
 function updateMastery() {
     mysticalFlaskGain = data.mastering ? Decimal.log(data.greenEnergy.times(0.75),2.5) : D(0)
+    data.mysticalFlasks = data.mastering ? data.mysticalFlasks.plus(mysticalFlaskGain.times(diff)) : data.mysticalFlasks
+    mysticalFlaskBoost = data.mysticalFlasks.gt(0) ? D(1).plus(Decimal.log10(data.mysticalFlasks)) : D(1)
 }
 
 function mastery() {

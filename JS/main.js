@@ -91,8 +91,8 @@ function createPrompt(a,b) {
 }
 function createConfirmation(a) {
     if((!data.flaskTested[2] || data.greenEnergy.lt(2.5e5) || data.mastering) && a === 'prestige') return
-    if(a === 'prestige' && !data.settingsToggles[0]) prestige()
-    if(a === 'mastery' && !data.settingsToggles[1]) mastery()
+    if(a === 'prestige' && !data.settingsToggles[0]) {prestige(); return}
+    if(a === 'mastery' && !data.settingsToggles[1]) {mastery(); return}
     
     let old_element = document.getElementById("yesConfirm");
     let new_element = old_element.cloneNode(true);

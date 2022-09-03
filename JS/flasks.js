@@ -121,12 +121,13 @@ function updateTest() {
 
 function updateGreenEnergyGain() {
     greenEnergyGain = (data.flaskAmounts[0].times(0.5)).times(flaskBoosts[0]).times(flaskBoosts[1]).times(flaskBoosts[2]).times(flaskBoosts[3]).times(flaskBoosts[4]).times(flaskBoosts[5]).times(flaskBoosts[6]).times(flaskBoosts[7])
+    greenEnergyGain = greenEnergyGain.times(mysticalFlaskBoost)
 }
 
 function updateLabHTML() {
     for(let i = 0; i < flaskData.length; i++) {
         if(data.flaskTested[i]) {
-            DOMCacheGetOrSet(`labText${i}`).innerText = i === 0 ? `${flaskColors[i]} Flask - ${formatSci(data.flaskAmounts[i])}\n+${formatSci(greenEnergyGain)} Green Energy` : 
+            DOMCacheGetOrSet(`labText${i}`).innerText = i === 0 ? `${flaskColors[i]} Flask - ${formatSci(data.flaskAmounts[i])}\n+${!data.mastering ? formatSci(greenEnergyGain.div(mysticalFlaskBoost)) : formatSci((greenEnergyGain.div(mysticalFlaskBoost)).times(0.25))} Green Energy` : 
             `${flaskColors[i]} Flask - ${formatSci(data.flaskAmounts[i])}\n${flaskData[i-1].name} is ${formatSci(flaskBoosts[i-1])}x Stronger`
         }
         DOMCacheGetOrSet(`labHold${i}`).style.display = data.flaskTested[i] ? 'flex' : 'none'

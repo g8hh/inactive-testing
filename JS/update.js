@@ -1,7 +1,8 @@
 function updateHTML() {
     //Globals
-    DOMCacheGetOrSet(`greenEnergyText`).innerText = `${formatSci(data.greenEnergy)} [+${formatSci(greenEnergyGain)}/s]`
+    DOMCacheGetOrSet(`greenEnergyText`).innerText = `${formatSci(data.greenEnergy)} [+${!data.mastering ? formatSci(greenEnergyGain) : formatSci(greenEnergyGain.times(0.25))}/s]`
     DOMCacheGetOrSet('goldenFlaskText').innerText = `${formatSci(data.goldenFlasks)} [${formatSci(goldenFlaskBoost)}x Research Speed]`
+    DOMCacheGetOrSet('mysticalFlaskText').innerText = `${formatSci(data.mysticalFlasks)} [x${formatSci(mysticalFlaskBoost)} Energy Gain]`
     DOMCacheGetOrSet('tabButton4').style.display = data.flaskDiscovered[2] ? 'block' : 'none'
     DOMCacheGetOrSet('tabButton5').style.display = data.flaskDiscovered[5] ? 'block' : 'none'
     if(data.currentTab === 0) {
