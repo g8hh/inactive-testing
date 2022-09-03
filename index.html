@@ -51,8 +51,12 @@
             <img src="Imgs/greenEnergy.png">
         </div>
         <div class="credit">
-            <img src="Imgs/flasks/goldenFlask.png">
             <p id="goldenFlaskText" style="color:var(--prestige-color)">0.00 Golden Flasks</p>
+            <img src="Imgs/flasks/goldenFlask.png">
+        </div>
+        <div class="credit">
+            <p id="mysticalFlaskText" style="color:var(--mastery-color)">0.00 Mystical Flasks [x0.00 Energy Gain]</p>
+            <img src="Imgs/flasks/mysticalFlask.png">
         </div>
     </div>
     <div id="tabButtonHolder" class="flexRow">
@@ -61,10 +65,12 @@
         <button id="tabButton2">Filling</button>
         <button id="tabButton3">Lab</button>
         <button id="tabButton4" class="prestigeButton">Prestige</button>
-        <button id="tabButton5">Achievements</button>
-        <button id="tabButton6">Settings</button>
+        <button id="tabButton5" class="masteryButton">Mastery</button>
+        <button id="tabButton6">Achievements</button>
+        <button id="tabButton7">Settings</button>
     </div>
     <div id="testingTab" class="flexCol tabHolder">
+        <h3>Testing</h3>
         <div class="flexRow">
             <div id="currentTestHolder" class="testHolder flexCol">
                 <img id="currentTestImg" src="Imgs/flasks/redFlask.png">
@@ -83,6 +89,7 @@
         </div>
     </div>
     <div id="brewingTab" class="flexCol tabHolder">
+        <h3>Brewing</h3>
         <div class="flexRow">
             <div id="brewHold0" class="flexCol brewHolder" style="border-color: var(--red-color)">
                 <img src="Imgs/drops/redDrop.png" style="border-color: var(--red-color)">
@@ -135,6 +142,7 @@
         <button id="buyAmount0">Buy Amount: 1</button>
     </div>
     <div id="fillingTab" class="flexCol tabHolder">
+        <h3>Filling</h3>
         <div class="flexRow">
             <div id="fillHold0" class="flexCol brewHolder" style="border-color: var(--red-color)">
                 <img src="Imgs/flasks/redFlask.png" style="border-color: var(--red-color)">
@@ -187,6 +195,7 @@
         <button id="buyAmount1">Buy Amount: 1</button>
     </div>
     <div id="labTab" class="flexCol tabHolder">
+        <h3>Lab</h3>
         <div class="flexRow">
             <div id="labHold0" class="flexCol labHolder" style="border-color: var(--red-color)">
                 <img src="Imgs/flasks/redFlask.png" style="border-color: var(--red-color)">
@@ -229,10 +238,22 @@
         </div>
     </div>
     <div id="prestigeTab" class="flexCol tabHolder">
-        <h3 style="color:var(--prestige-color)">Prestige!</h3>
+        <div class="flexRow">
+            <img style="width:44px;height:44px" src="Imgs/flasks/goldenFlask.png">
+            <h3 style="color:var(--prestige-color)">Prestige</h3>
+            <img style="width:44px;height:44px" src="Imgs/flasks/goldenFlask.png">
+        </div>
         <h4 id="goldenFlaskGainText" style="color:var(--prestige-color)">Gain +0.00 Golden Flasks on Prestige</h4>
         <button id="prestigeButton" class="prestigeButton">Prestige!</button>
         <h3 style="color:var(--prestige-color);margin-top:1vw">Automation - Soon</h3>
+    </div>
+    <div id="masteryTab" class="flexCol tabHolder">
+        <div class="flexRow">
+            <img style="width:44px;height:44px" src="Imgs/flasks/mysticalFlask.png">
+            <h3 style="color:var(--mastery-color)">Mastery</h3>
+            <img style="width:44px;height:44px" src="Imgs/flasks/mysticalFlask.png">
+        </div>
+        
     </div>
     <div id="achievementsTab" class="flexCol tabHolder">
         <div class="flexRow">

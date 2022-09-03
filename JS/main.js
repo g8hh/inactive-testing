@@ -20,7 +20,6 @@ function generateEventHandlers() {
 function updateBuyAmount(i) {
     if(data.buyAmounts[i] < 4) data.buyAmounts[i]++
     if(data.buyAmounts[i] >= 4) data.buyAmounts[i] = 0
-    DOMCacheGetOrSet(`buyAmount${i}`).innerText = `Buy Amount: ${formatSci(buyAmounts[data.buyAmounts[i]])}`
 }
 
 function mainLoop() {
@@ -38,7 +37,7 @@ function mainLoop() {
         */
     data.time = Date.now()
 }
-const tabIDs = ['testing','brewing','filling','lab','prestige','achievements','settings']
+const tabIDs = ['testing','brewing','filling','lab','prestige','mastery','achievements','settings']
 function changeTab(i) {
     
     data.currentTab = i
@@ -132,6 +131,11 @@ function closeModal(i) {
     
 }
 
+function getTotalCost(b,s,a,i) {
+    let cost = b
+    cost = cost.times(Decimal.pow(s,data.juiceAmounts[i].plus(data.flaskAmounts[i]).plus(a)))
+    return cost
+}
 window.setInterval(function() {
     mainLoop()
 },50)

@@ -37,8 +37,7 @@ function load() {
         createAlert("Welcome Back!",`The current version is ${getDefaultObject().currentUpdate}, View the Changelog (in settings) for details`,"812626")
         data.currentUpdate = getDefaultObject().currentUpdate
     }
-    for(let i = 0; i < data.buyAmounts; i++)
-        DOMCacheGetOrSet(`buyAmount${i}`).innerText = `Buy Amount: ${formatSci(buyAmounts[data.buyAmounts[i]])}`
+
 }
 //fix saves
 function fixSave(main=getDefaultObject(), data) {

@@ -9,6 +9,7 @@
     --unlocked-color: #3ec14b;
     --maxed-color: #3eb6c1;
     --prestige-color: #f3e96e;
+    --mastery-color: #44009e;
     /*Flask/tube colors*/
     --red-color: #ff4444;
     --orange-color: #ff8f44;
@@ -104,6 +105,9 @@ h1,h2,h3,h4 { margin-bottom: 1vh;}
 
 .prestigeButton {border-color: var(--prestige-color);}
 .prestigeButton:hover {color:whitesmoke;border-color: var(--prestige-color);background-color: var(--prestige-color);}
+
+.masteryButton {border-color: var(--mastery-color);}
+.masteryButton:hover {color:whitesmoke;border-color: var(--mastery-color);background-color: var(--mastery-color);}
 
 .credit {
     display: flex;
