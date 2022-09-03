@@ -132,5 +132,5 @@ function updateLabHTML() {
 
 function updateFlaskBoosts() {
     for(let i = 0; i < flaskBoosts.length; i++)
-        flaskBoosts[i] = data.flaskAmounts[i+1].gt(0) ? D(1).plus(Decimal.sqrt(data.flaskAmounts[i+1].div(2.5))) : D(1)
+        flaskBoosts[i] = data.flaskAmounts[i+1].gt(0) ? D(1).plus(Decimal.sqrt(data.flaskAmounts[i+1].div(5))) : D(1)
 }
