@@ -21,6 +21,8 @@ function prestige() {
             data.juiceAmounts[i] = D(0)
         }
         data.greenEnergy = D(50)
+        data.testing = false
+        data.currentUnlockTime = 0
         data.flaskTestIndex = 0
     }
 }

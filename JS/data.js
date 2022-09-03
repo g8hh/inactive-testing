@@ -37,13 +37,8 @@ function load() {
         createAlert("Welcome Back!",`The current version is ${getDefaultObject().currentUpdate}, View the Changelog (in settings) for details`,"812626")
         data.currentUpdate = getDefaultObject().currentUpdate
     }
-    /*
-    for(let i = 0; i < data.buyAmounts.length; i++) {
-        const numString = ['1','5','10','20']
-        DOMCacheGetOrSet(`ba${i}`).innerText = `Buy Amount: ${numString[data.buyAmounts[i]]}`
-        DOMCacheGetOrSet(`ba${i}`).onclick = () => {toggleBA(i)}
-    }
-    */
+    for(let i = 0; i < data.buyAmounts; i++)
+        DOMCacheGetOrSet(`buyAmount${i}`).innerText = `Buy Amount: ${formatSci(buyAmounts[data.buyAmounts[i]])}`
 }
 //fix saves
 function fixSave(main=getDefaultObject(), data) {
@@ -98,8 +93,6 @@ window.onload = function (){
     diff = (Date.now()-data.time)*data.devSpeed/1000
     $.notify('Welcome Back!\nYou were gone for ' + formatTime(diff), 'info')
     changeTab(data.currentTab)
-    for(let i = 0; i < data.buyAmounts; i++)
-        DOMCacheGetOrSet(`buyAmount${i}`).innerText = `Buy Amount: ${formatSci(buyAmounts[data.buyAmounts[i]])}`
     $.notify('Game Loaded','info')
 }
 //full reset
