@@ -15,6 +15,8 @@ function generateEventHandlers() {
     DOMCacheGetOrSet('masteryButton').addEventListener('click',() => createConfirmation('mastery'))
     for(let i = 0; i < 2; i++)
         DOMCacheGetOrSet(`buyAmount${i}`).addEventListener('click', () => updateBuyAmount(i))
+    for(let i = 0; i < data.settingsToggles.length; i++)
+        DOMCacheGetOrSet(`setTog${i}`).addEventListener('click', () => settingsToggle(i))
     console.log('Event Handlers Init...')
 }
 
@@ -150,6 +152,11 @@ function getTotalCost(b,s,a,i) {
     cost = cost.times(Decimal.pow(s,data.juiceAmounts[i].plus(data.flaskAmounts[i]).plus(a)))
     return cost
 }
+
+function settingsToggle(i) {
+    data.settingsToggles[i] = !data.settingsToggles[i]
+}
+
 window.setInterval(function() {
     mainLoop()
 },50)

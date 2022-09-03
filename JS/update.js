@@ -24,4 +24,8 @@ function updateHTML() {
     else if(data.currentTab === 5) {
         updateMasteryHTML()
     }
+    else if(data.currentTab === 7) {
+        DOMCacheGetOrSet('setTog0').innerText = data.settingsToggles[0] ? 'Prestige Confirm: ON' : 'Prestige Confirm: OFF'
+        DOMCacheGetOrSet('setTog1').innerText = data.settingsToggles[1] ? 'Mastery Confirm: ON' : 'Mastery Confirm: OFF'
+    }
 }
