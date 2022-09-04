@@ -22,7 +22,7 @@ function getDefaultObject() {
         currentTab: 0,
         settingsToggles: [true,true],
         buyAmounts: [0,0],
-        currentUpdate: 'v0.0.4',
+        currentUpdate: 'v0.0.5',
         devSpeed: 1,
     }
 }

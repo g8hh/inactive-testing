@@ -156,9 +156,13 @@ function closeModal(i) {
 }
 
 function getTotalCost(b,s,a,i) {
-    let cost = b
-    cost = cost.times(Decimal.pow(s,data.juiceAmounts[i].plus(data.flaskAmounts[i]).plus(a)))
-    return cost
+    //b = base, s = scale, a = buyAmount, i = index
+    //get the multiplier for bulk buying
+    let bulkMult = Decimal.pow(s, a).minus(1).div(s.minus(1));
+    //base cost * 1.01^owned * bulk mult
+    let cost = b.times(Decimal.pow(s, data.juiceAmounts[i].plus(data.flaskAmounts[i]))).times(bulkMult);
+    
+    return cost;
 }
 
 function settingsToggle(i) {
