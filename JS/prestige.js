@@ -56,7 +56,7 @@ function auto(i) {
 
 function runAuto() {
     for(let i = 0; i < data.autoActive.length; i++) {
-        if(data.autoActive[i] && data.flaskTested[i]) {
+        if(data.autoActive[i] && data.flaskTested[i] && data.autoPurchased[i]) {
             if(data.greenEnergy.gte(getTotalCost(baseBrewCost[i],D(1.01),buyAmounts[data.buyAmounts[0]],i)))
                 brewJuice(i)
             if(data.juiceAmounts[i].gte(D(1).times(buyAmounts[data.buyAmounts[1]])))
