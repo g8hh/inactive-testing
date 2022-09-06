@@ -63,8 +63,8 @@ function updateTestHTML() {
         || (DOMCacheGetOrSet('currentTestImg').getAttribute('src') !== `${flaskImgPath}questionFlask.png` && data.flaskDiscovered[data.flaskTestIndex] === false))
             DOMCacheGetOrSet('currentTestImg').setAttribute('src', data.flaskDiscovered[data.flaskTestIndex] ? `${flaskImgPath}${flaskData[data.flaskTestIndex].id}.png` : `${flaskImgPath}questionFlask.png`)
         DOMCacheGetOrSet('currentTestText').innerText = data.flaskDiscovered[data.flaskTestIndex] ? 
-        `-=${flaskData[data.flaskTestIndex].name}=-\nTime To Test: ${ flaskData[data.flaskTestIndex].unlockTime*goldenFlaskEffect < 0.1 ? 'Instant' : formatTime(flaskData[data.flaskTestIndex].unlockTime*(goldenFlaskEffect))}\nReq: ${formatSci(flaskData[data.flaskTestIndex].requirement)} ${data.flaskTestIndex !== 0 ? `${flaskData[data.flaskTestIndex-1].name}` : 'Green Energy'}` :
-        `-=???=-\nTime To Test: ${ flaskData[data.flaskTestIndex].unlockTime*goldenFlaskEffect < 0.1 ? 'Instant' : formatTime(flaskData[data.flaskTestIndex].unlockTime*(goldenFlaskEffect))}\nReq: ${formatSci(flaskData[data.flaskTestIndex].requirement)} ${data.flaskTestIndex !== 0 ? `${flaskData[data.flaskTestIndex-1].name}` : 'Green Energy'}`
+        `-=${flaskData[data.flaskTestIndex].name}=-\nTime To Test: ${ flaskData[data.flaskTestIndex].unlockTime*goldenFlaskEffect < 0.1 ? 'Instant' : formatTime(flaskData[data.flaskTestIndex].unlockTime*(goldenFlaskEffect),false)}\nReq: ${formatSci(flaskData[data.flaskTestIndex].requirement)} ${data.flaskTestIndex !== 0 ? `${flaskData[data.flaskTestIndex-1].name}` : 'Green Energy'}` :
+        `-=???=-\nTime To Test: ${ flaskData[data.flaskTestIndex].unlockTime*goldenFlaskEffect < 0.1 ? 'Instant' : formatTime(flaskData[data.flaskTestIndex].unlockTime*(goldenFlaskEffect),false)}\nReq: ${formatSci(flaskData[data.flaskTestIndex].requirement)} ${data.flaskTestIndex !== 0 ? `${flaskData[data.flaskTestIndex-1].name}` : 'Green Energy'}`
     }
     else {
         if((DOMCacheGetOrSet('currentTestImg').getAttribute('src') !== `${flaskImgPath}maxFlask.png`))
@@ -76,8 +76,8 @@ function updateTestHTML() {
         || (DOMCacheGetOrSet('nextTestImg').getAttribute('src') !== `${flaskImgPath}questionFlask.png` && data.flaskDiscovered[data.flaskTestIndex+1] === false))
             DOMCacheGetOrSet('nextTestImg').setAttribute('src', data.flaskDiscovered[data.flaskTestIndex+1] ? `${flaskImgPath}${flaskData[data.flaskTestIndex+1].id}.png` : `${flaskImgPath}questionFlask.png`)
         DOMCacheGetOrSet('nextTestText').innerText = data.flaskDiscovered[data.flaskTestIndex+1] ? 
-        `-=${flaskData[data.flaskTestIndex+1].name}=-\nTime To Test: ${ flaskData[data.flaskTestIndex+1].unlockTime*goldenFlaskEffect < 0.1 ? 'Instant' : formatTime(flaskData[data.flaskTestIndex+1].unlockTime*(goldenFlaskEffect))}\nReq: ${formatSci(flaskData[data.flaskTestIndex+1].requirement)} ${flaskData[data.flaskTestIndex].name}` :
-        `-=???=-\nTime To Test: ${ flaskData[data.flaskTestIndex+1].unlockTime*goldenFlaskEffect < 0.1 ? 'Instant' : formatTime(flaskData[data.flaskTestIndex+1].unlockTime*(goldenFlaskEffect))}\nReq: ${formatSci(flaskData[data.flaskTestIndex+1].requirement)} ${data.flaskDiscovered[data.flaskTestIndex] ? flaskData[data.flaskTestIndex].name : '??? Flask'}`
+        `-=${flaskData[data.flaskTestIndex+1].name}=-\nTime To Test: ${ flaskData[data.flaskTestIndex+1].unlockTime*goldenFlaskEffect < 0.1 ? 'Instant' : formatTime(flaskData[data.flaskTestIndex+1].unlockTime*(goldenFlaskEffect),false)}\nReq: ${formatSci(flaskData[data.flaskTestIndex+1].requirement)} ${flaskData[data.flaskTestIndex].name}` :
+        `-=???=-\nTime To Test: ${ flaskData[data.flaskTestIndex+1].unlockTime*goldenFlaskEffect < 0.1 ? 'Instant' : formatTime(flaskData[data.flaskTestIndex+1].unlockTime*(goldenFlaskEffect),false)}\nReq: ${formatSci(flaskData[data.flaskTestIndex+1].requirement)} ${data.flaskDiscovered[data.flaskTestIndex] ? flaskData[data.flaskTestIndex].name : '??? Flask'}`
     }
     else {
         if((DOMCacheGetOrSet('nextTestImg').getAttribute('src') !== `${flaskImgPath}maxFlask.png`))

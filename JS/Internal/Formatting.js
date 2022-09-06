@@ -103,16 +103,29 @@ function formatWhole(decimal) {
     return format(decimal, 0)
 }
 
-function formatTime(time) {
-  if (time >= 31536000) {
-      return Decimal.floor(time / 31536000) + "y " + Decimal.floor((time % 31536000) / 86400) + "d " + Decimal.floor((time % 86400) / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + Decimal.floor(time % 60) + "s"
-  } else if (time >= 86400) {
-      return Decimal.floor(time / 86400) + "d " + Decimal.floor((time % 86400) / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + Decimal.floor(time % 60) + "s"
-  } else if (time >= 3600) {
-      return Decimal.floor(time / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + Decimal.floor(time % 60) + "s"
-  } else if (time >= 60) {
-      return Decimal.floor(time / 60) + "m " + Decimal.floor(time % 60) + "s"
-  } else return Decimal.floor(time % 60) + "s"
+function formatTime(time,a=true) {
+    if(a) {
+        if (time >= 31536000) {
+            return Decimal.floor(time / 31536000) + "y " + Decimal.floor((time % 31536000) / 86400) + "d " + Decimal.floor((time % 86400) / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + Decimal.floor(time % 60) + "s"
+        } else if (time >= 86400) {
+            return Decimal.floor(time / 86400) + "d " + Decimal.floor((time % 86400) / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + Decimal.floor(time % 60) + "s"
+        } else if (time >= 3600) {
+            return Decimal.floor(time / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + Decimal.floor(time % 60) + "s"
+        } else if (time >= 60) {
+            return Decimal.floor(time / 60) + "m " + Decimal.floor(time % 60) + "s"
+        } else return Decimal.floor(time % 60) + "s"
+    }
+    else {
+        if (time >= 31536000) {
+            return Decimal.floor(time / 31536000) + "y " + Decimal.floor((time % 31536000) / 86400) + "d " + Decimal.floor((time % 86400) / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + toPlaces(time % 60,2,(time%60)+1) + "s"
+        } else if (time >= 86400) {
+            return Decimal.floor(time / 86400) + "d " + Decimal.floor((time % 86400) / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + toPlaces(time % 60,2,(time%60)+1) + "s"
+        } else if (time >= 3600) {
+            return Decimal.floor(time / 3600) + "h " + Decimal.floor((time % 3600) / 60) + "m " + toPlaces(time % 60,2,(time%60)+1) + "s"
+        } else if (time >= 60) {
+            return Decimal.floor(time / 60) + "m " + toPlaces(time % 60,2,(time%60)+1) + "s"
+        } else return toPlaces(time % 60,2,(time%60)+1) + "s"
+    }
 }
 
 function toPlaces(x, precision, maxAccepted) {
