@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mrbacon470.github.io/Inactive-Testing/">
+    <meta property="og:title" content="Inactive Testing v0.0.4">
+    <meta property="og:description" content="IA made by VoidCloud.">
+    <meta property="og:image" content="Imgs/flasks/mysticalFlask.png">
+    <meta content="#9444ff" data-react-helmet="true" name="theme-color" />
+
+    <script src="JS/Internal/jquery-3.6.0.min.js"></script>
+    <script src="JS/Internal/notify.js"></script>
+    <link rel="stylesheet" href="CSS/Theme-Original.css">
+    <link id="faviconLink" rel="icon" type="image/png" href="Imgs/flasks/mysticalFlask.png">
+    <title>活性测试 - Inactive Testing</title>
+</head>
+<body>
+    <script src="chs.js"></script>
+    <script src="core.js"></script>
+    <div id="promptContainer" class="modalContainer">
+        <div id="prompt">
+            <h3 id="promptTitle" style="text-align:center"></h3>
+            <input id="promptInput" type="text" placeholder="Enter text">
+            <button id="promptButton">Submit</button>
+        </div>
+    </div>
+    <div id="alertContainer" class="modalContainer">
+        <div id="alert">
+            <h3 id="alertTitle" style="text-align:center">Welcome back gamer!</h3>
+            <p id="alertContent" style="text-align:center">New things have been added since last time</p>
+            <button id="closeAlert" onclick="closeModal(0)">Thanks!</button>
+            <br>
+        </div>
+    </div>
+    <div id="confirmContainer" class="modalContainer">
+        <div id="confirm" class="flexCol">
+            <h3 id="confirmTitle" style="text-align:center">Are you sure?</h3>
+            <p id="confirmContent" style="margin-bottom:1vh;text-align:center">New things have been added since last time</p>
+            <div class="flexRow">
+                <button id="noConfirm" class="lockedResearch" style="margin-right:0.5vw">No!</button>
+                <button id="yesConfirm" class="unlockedResearch" style="margin-left:0.5vw">Yes!</button>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div id="mainHeader" class="flexRow">
+        <div class="credit">
+            <p id="greenEnergyText" style="color:#51e761">0.00</p>
+            <img src="Imgs/greenEnergy.png">
+        </div>
+        <div class="credit">
+            <p id="goldenFlaskText" style="color:var(--prestige-color)">0.00 Golden Flasks</p>
+            <img src="Imgs/flasks/goldenFlask.png">
+        </div>
+        <div class="credit">
+            <p id="mysticalFlaskText" style="color:var(--mastery-color)">0.00 Mystical Flasks [x0.00 Energy Gain]</p>
+            <img src="Imgs/flasks/mysticalFlask.png">
+        </div>
+    </div>
+    <div id="tabButtonHolder" class="flexRow">
+        <button id="tabButton0">Testing</button>
+        <button id="tabButton1">Brewing</button>
+        <button id="tabButton2">Filling</button>
+        <button id="tabButton3">Lab</button>
+        <button id="tabButton4" class="prestigeButton">Prestige</button>
+        <button id="tabButton5" class="masteryButton">Mastery</button>
+        <button id="tabButton6">Achievements</button>
+        <button id="tabButton7">Settings</button>
+    </div>
+    <div id="testingTab" class="flexCol tabHolder">
+        <h3>Testing</h3>
+        <div class="flexRow">
+            <div id="currentTestHolder" class="testHolder flexCol">
+                <img id="currentTestImg" src="Imgs/flasks/redFlask.png">
+                <p id="currentTestText">-=Red Flask=-<br>Time to Test: 0.00s<br>Cost: None</p>
+                <button id="currentTestButton">Test Red Flask</button>
+            </div>
+            <div id="nextTestHolder" class="testHolder flexCol">
+                <img id="nextTestImg" src="Imgs/flasks/questionFlask.png">
+                <p id="nextTestText">-=???=-<br>Time to Test: 0.00s<br>Cost: None</p>
+            </div>
+        </div>
+        <div id="testingProgressBar">
+            <div id="progress">
+                <p id="progressText">0.00%</p>
+            </div>
+        </div>
+    </div>
+    <div id="brewingTab" class="flexCol tabHolder">
+        <h3>Brewing</h3>
+        <div class="flexRow">
+            <div id="brewHold0" class="flexCol brewHolder" style="border-color: var(--red-color)">
+                <img src="Imgs/drops/redDrop.png" style="border-color: var(--red-color)">
+                <p id="brewText0">Red Juice 0.00</p>
+                <button id="brewButton0">Brew It!</button>
+            </div>
+            <div id="brewHold1" class="flexCol brewHolder" style="border-color: var(--orange-color)">
+                <img src="Imgs/drops/orangeDrop.png" style="border-color: var(--orange-color)">
+                <p id="brewText1">Brew Red Juice</p>
+                <button id="brewButton1">Brew It!</button>
+            </div>
+            <div id="brewHold2" class="flexCol brewHolder" style="border-color: var(--yellow-color)">
+                <img src="Imgs/drops/yellowDrop.png" style="border-color: var(--yellow-color)">
+                <p id="brewText2">Brew Red Juice</p>
+                <button id="brewButton2">Brew It!</button>
+            </div>
+            <div id="brewHold3" class="flexCol brewHolder" style="border-color: var(--green-color)">
+                <img src="Imgs/drops/greenDrop.png" style="border-color: var(--green-color)">
+                <p id="brewText3">Brew Red Juice</p>
+                <button id="brewButton3">Brew It!</button>
+            </div>
+            <div id="brewHold4" class="flexCol brewHolder" style="border-color: var(--blue-color)">
+                <img src="Imgs/drops/blueDrop.png" style="border-color: var(--blue-color)">
+                <p id="brewText4">Brew Red Juice</p>
+                <button id="brewButton4">Brew It!</button>
+            </div>
+        </div>
+        <div class="flexRow">
+            <div id="brewHold5" class="flexCol brewHolder" style="border-color: var(--purple-color)">
+                <img src="Imgs/drops/purpleDrop.png" style="border-color: var(--purple-color)">
+                <p id="brewText5">Brew Red Juice</p>
+                <button id="brewButton5">Brew It!</button>
+            </div>
+            <div id="brewHold6" class="flexCol brewHolder" style="border-color: var(--pink-color)">
+                <img src="Imgs/drops/pinkDrop.png" style="border-color: var(--pink-color)">
+                <p id="brewText6">Brew Red Juice</p>
+                <button id="brewButton6">Brew It!</button>
+            </div>
+            <div id="brewHold7" class="flexCol brewHolder" style="border-color: var(--white-color)">
+                <img src="Imgs/drops/whiteDrop.png" style="border-color: var(--white-color)">
+                <p id="brewText7">Brew Red Juice</p>
+                <button id="brewButton7">Brew It!</button>
+            </div>
+            <div id="brewHold8" class="flexCol brewHolder" style="border-color: var(--black-color)">
+                <img src="Imgs/drops/blackDrop.png" style="border-color: var(--black-color)">
+                <p id="brewText8">Brew Red Juice</p>
+                <button id="brewButton8">Brew It!</button>
+            </div>
+        </div>
+        <button id="buyAmount0">Buy Amount: 1</button>
+    </div>
+    <div id="fillingTab" class="flexCol tabHolder">
+        <h3>Filling</h3>
+        <div class="flexRow">
+            <div id="fillHold0" class="flexCol brewHolder" style="border-color: var(--red-color)">
+                <img src="Imgs/flasks/redFlask.png" style="border-color: var(--red-color)">
+                <p id="fillText0">Red Juice 0.00</p>
+                <button id="fillButton0">Brew It!</button>
+            </div>
+            <div id="fillHold1" class="flexCol brewHolder" style="border-color: var(--orange-color)">
+                <img src="Imgs/flasks/orangeFlask.png" style="border-color: var(--orange-color)">
+                <p id="fillText1">Brew Red Juice</p>
+                <button id="fillButton1">Brew It!</button>
+            </div>
+            <div id="fillHold2" class="flexCol brewHolder" style="border-color: var(--yellow-color)">
+                <img src="Imgs/flasks/yellowFlask.png" style="border-color: var(--yellow-color)">
+                <p id="fillText2">Brew Red Juice</p>
+                <button id="fillButton2">Brew It!</button>
+            </div>
+            <div id="fillHold3" class="flexCol brewHolder" style="border-color: var(--green-color)">
+                <img src="Imgs/flasks/greenFlask.png" style="border-color: var(--green-color)">
+                <p id="fillText3">Brew Red Juice</p>
+                <button id="fillButton3">Brew It!</button>
+            </div>
+            <div id="fillHold4" class="flexCol brewHolder" style="border-color: var(--blue-color)">
+                <img src="Imgs/flasks/blueFlask.png" style="border-color: var(--blue-color)">
+                <p id="fillText4">Brew Red Juice</p>
+                <button id="fillButton4">Brew It!</button>
+            </div>
+        </div>
+        <div class="flexRow">
+            <div id="fillHold5" class="flexCol brewHolder" style="border-color: var(--purple-color)">
+                <img src="Imgs/flasks/purpleFlask.png" style="border-color: var(--purple-color)">
+                <p id="fillText5">Brew Red Juice</p>
+                <button id="fillButton5">Brew It!</button>
+            </div>
+            <div id="fillHold6" class="flexCol brewHolder" style="border-color: var(--pink-color)">
+                <img src="Imgs/flasks/pinkFlask.png" style="border-color: var(--pink-color)">
+                <p id="fillText6">Brew Red Juice</p>
+                <button id="fillButton6">Brew It!</button>
+            </div>
+            <div id="fillHold7" class="flexCol brewHolder" style="border-color: var(--white-color)">
+                <img src="Imgs/flasks/whiteFlask.png" style="border-color: var(--white-color)">
+                <p id="fillText7">Brew Red Juice</p>
+                <button id="fillButton7">Brew It!</button>
+            </div>
+            <div id="fillHold8" class="flexCol brewHolder" style="border-color: var(--black-color)">
+                <img src="Imgs/flasks/blackFlask.png" style="border-color: var(--black-color)">
+                <p id="fillText8">Brew Red Juice</p>
+                <button id="fillButton8">Brew It!</button>
+            </div>
+        </div>
+        <button id="buyAmount1">Buy Amount: 1</button>
+    </div>
+    <div id="labTab" class="flexCol tabHolder">
+        <h3>Lab</h3>
+        <div class="flexRow">
+            <div id="labHold0" class="flexCol labHolder" style="border-color: var(--red-color)">
+                <img src="Imgs/flasks/redFlask.png" style="border-color: var(--red-color)">
+                <p id="labText0">Red Juice 0.00</p>
+            </div>
+            <div id="labHold1" class="flexCol labHolder" style="border-color: var(--orange-color)">
+                <img src="Imgs/flasks/orangeFlask.png" style="border-color: var(--orange-color)">
+                <p id="labText1">Brew Red Juice</p>
+            </div>
+            <div id="labHold2" class="flexCol labHolder" style="border-color: var(--yellow-color)">
+                <img src="Imgs/flasks/yellowFlask.png" style="border-color: var(--yellow-color)">
+                <p id="labText2">Brew Red Juice</p>
+            </div>
+            <div id="labHold3" class="flexCol labHolder" style="border-color: var(--green-color)">
+                <img src="Imgs/flasks/greenFlask.png" style="border-color: var(--green-color)">
+                <p id="labText3">Brew Red Juice</p>
+            </div>
+            <div id="labHold4" class="flexCol labHolder" style="border-color: var(--blue-color)">
+                <img src="Imgs/flasks/blueFlask.png" style="border-color: var(--blue-color)">
+                <p id="labText4">Brew Red Juice</p>
+            </div>
+        </div>
+        <div class="flexRow">
+            <div id="labHold5" class="flexCol labHolder" style="border-color: var(--purple-color)">
+                <img src="Imgs/flasks/purpleFlask.png" style="border-color: var(--purple-color)">
+                <p id="labText5">Brew Red Juice</p>
+            </div>
+            <div id="labHold6" class="flexCol labHolder" style="border-color: var(--pink-color)">
+                <img src="Imgs/flasks/pinkFlask.png" style="border-color: var(--pink-color)">
+                <p id="labText6">Brew Red Juice</p>
+            </div>
+            <div id="labHold7" class="flexCol labHolder" style="border-color: var(--white-color)">
+                <img src="Imgs/flasks/whiteFlask.png" style="border-color: var(--white-color)">
+                <p id="labText7">Brew Red Juice</p>
+            </div>
+            <div id="labHold8" class="flexCol labHolder" style="border-color: var(--black-color)">
+                <img src="Imgs/flasks/blackFlask.png" style="border-color: var(--black-color)">
+                <p id="labText8">Brew Red Juice</p>
+            </div>
+        </div>
+    </div>
+    <div id="prestigeTab" class="flexCol tabHolder">
+        <div class="flexRow" style="margin-bottom:2vh">
+            <img style="width:44px;height:44px" src="Imgs/flasks/goldenFlask.png">
+            <h3 style="color:var(--prestige-color)">Prestige</h3>
+            <img style="width:44px;height:44px" src="Imgs/flasks/goldenFlask.png">
+        </div>
+        <h4 id="goldenFlaskGainText" style="color:var(--prestige-color)">Gain +0.00 Golden Flasks on Prestige</h4>
+        <button id="prestigeButton" class="prestigeButton">Prestige!</button>
+        <h3 style="color:var(--prestige-color);margin-top:1vw">Automators</h3>
+        <div id="settingsButtonHolder" class="flexRow">
+            <button id="auto0"></button>
+            <button id="auto1"></button>
+            <button id="auto2"></button>
+            <button id="auto3"></button>
+            <button id="auto4"></button>
+        </div>
+        <div id="settingsButtonHolder" class="flexRow">
+            <button id="auto5"></button>
+            <button id="auto6"></button>
+            <button id="auto7"></button>
+            <button id="auto8"></button>
+        </div>
+    </div>
+    <div id="masteryTab" class="flexCol tabHolder">
+        <div class="flexRow" style="margin-bottom:2vh">
+            <img style="width:44px;height:44px" src="Imgs/flasks/mysticalFlask.png">
+            <h3 style="color:var(--mastery-color)">Mastery</h3>
+            <img style="width:44px;height:44px" src="Imgs/flasks/mysticalFlask.png">
+        </div>
+        <p style="text-align:center;max-width:20vw;color:var(--mastery-color);margin-bottom: 2vh;">What is mastery?<br>When you start mastering you will do a prestige reset and your energy gain will be only 1/4th of what it usually is but you will gain mystical flasks even though they won't have any effect while running it.</p>
+        <button id="masteryButton" class="masteryButton" style="margin-bottom:2vh;">Start Mastering</button>
+        <p id="masteryGainText" style="color:var(--mastery-color)">Gaining 0.00 Mystical Flasks/s</p>
+    </div>
+    <div id="achievementsTab" class="flexCol tabHolder">
+        <p id="achPercentText" style="text-align:center">H</p>
+        <div class="flexRow">
+            <div class="flexCol">
+                <img id="ach0" class="achLock" src="Imgs/flasks/questionFlask.png">
+                <img id="ach1" class="achLock" src="Imgs/flasks/questionFlask.png">
+                <img id="ach2" class="achLock" src="Imgs/flasks/questionFlask.png">
+                <img id="ach3" class="achLock" src="Imgs/flasks/questionFlask.png">
+                <img id="ach4" class="achLock" src="Imgs/flasks/questionFlask.png">
+                <img id="ach5" class="achLock" src="Imgs/flasks/questionFlask.png">
+                <img id="ach6" class="achLock" src="Imgs/flasks/questionFlask.png">
+                <img id="ach7" class="achLock" src="Imgs/flasks/questionFlask.png">
+            </div>
+            <div class="flexCol">
+                <img id="ach8" class="achLock" src="Imgs/flasks/questionFlask.png">
+                <div class="achPlaceholder"></div>
+                <img id="ach9" class="achLock" src="Imgs/greenEnergy.png">
+                <img id="ach10" class="achLock" src="Imgs/greenEnergy.png">
+                <img id="ach11" class="achLock" src="Imgs/greenEnergy.png">
+                <img id="ach12" class="achLock" src="Imgs/greenEnergy.png">
+                <img id="ach13" class="achLock" src="Imgs/greenEnergy.png">
+                <img id="ach14" class="achLock" src="Imgs/greenEnergy.png">
+            </div>
+            <div class="flexCol">
+                <img id="ach15" class="achLock" src="Imgs/flasks/goldenFlask.png">
+                <img id="ach16" class="achLock" src="Imgs/flasks/goldenFlask.png">
+                <img id="ach17" class="achLock" src="Imgs/flasks/goldenFlask.png">
+                <img id="ach18" class="achLock" src="Imgs/flasks/goldenFlask.png">
+                <img id="ach19" class="achLock" src="Imgs/flasks/mysticalFlask.png">
+                <img id="ach20" class="achLock" src="Imgs/flasks/mysticalFlask.png">
+                <img id="ach21" class="achLock" src="Imgs/flasks/mysticalFlask.png">
+                <img id="ach22" class="achLock" src="Imgs/flasks/mysticalFlask.png">
+            </div>
+        </div>
+        <p id="achHoverText" style="text-align:center"></p>
+    </div>
+    <div id="settingsTab" class="flexCol tabHolder">
+        <div id="settingsButtonHolder" class="flexRow" style="margin-bottom:1vh">
+            <button onclick="save()">Save Game</button>
+            <button onclick="exportSave()">Export Save</button>
+            <button onclick="createPrompt('Import your save',0)">Import Save</button>
+            <button class="locked" onclick="createConfirmation('reset')">Delete Save (Exports)</button>
+        </div>
+        <div id="settingsButtonHolder" class="flexRow" style="margin-bottom:1vh">
+            <button id="setTog0"></button>
+            <button id="setTog1"></button>
+        </div>
+        <a style="margin-bottom:1vh" href="https://discord.com/invite/JkQUnubuhx">Discord Link!</a>
+        <strong style="margin-bottom:1vh">A special thank you to CryptoGrounds for allowing me to use some of his ideas to make a knockoff of <a href="https://store.steampowered.com/app/1482860/Idle_Research/">Idle Research</a></strong>
+        <div id="changelogHolder" style="text-align:center">
+            <h3>Current Version: v0.0.5.1</h3>
+            <p>v0.0.5.1 - Testing Times now have 2 decimal precision on seconds</p>
+            <p>v0.0.5 - Bulk Buy Math Fixed (Credit:Poogen#4177) and Fixes for UI clipping on smaller resolutions</p>
+            <p>v0.0.4 - Achievements Added</p>
+            <p>v0.0.3 - Mastery, Confirmation Toggles and Automation Implemented</p>
+            <p>v0.0.2 - Prestige Implemented</p>
+            <p>v0.0.1 - Added Testing, Filling, Brewing, Lab and Setup UI</p>
+        </div>
+    </div>
+</body>
+    <script src="JS/Internal/BreakEternity.js"></script>
+    <script src="JS/Internal/Cache.js"></script>
+    <script src="JS/Internal/Formatting.js"></script>
+    <script src="JS/Internal/MyMath.js"></script>
+    <script src="JS/data.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/update.js"></script>
+    <script src="JS/flasks.js"></script>
+    <script src="JS/brewing.js"></script>
+    <script src="JS/filling.js"></script>
+    <script src="JS/prestige.js"></script>
+    <script src="JS/mastery.js"></script>
+    <script src="JS/achievements.js"></script>
+<!--客服 开始-->
+<script src="//g8hh.github.io/static/js/jquery.min.js"></script>
+<link rel="stylesheet" href="//g8hh.github.io/static/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//g8hh.github.io/static/js/kf.js"></script>
+<!-- 客服 结束 -->
+<!--站长统计-->
+<div style="display: none"><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f237591d5976f87ca2e06b38c3658d9c";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+        </div>
+</html>
