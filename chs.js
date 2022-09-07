@@ -162,7 +162,7 @@ var cnItems = {
     "This will trigger a prestige reset and start mastery.": "这将触发声望重置并开始精通。",
     "Gold Unlocked!": "黄金已解锁！",
     "Stop Mastering": "停止精通",
-    "": "",
+    "Can't prestige while mastering": "精通时无法声望",
     "": "",
     "": "",
     "": "",
