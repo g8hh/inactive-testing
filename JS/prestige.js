@@ -12,14 +12,17 @@ function updatePrestigeHTML() {
         DOMCacheGetOrSet('prestigeButton').classList = 'locked'
     }
     for(let i = 0; i < data.autoActive.length; i++) {
-        if(!data.autoPurchased[i]) {
-            DOMCacheGetOrSet(`auto${i}`).innerText = `Automatic ${juiceColors[i]}\nCost: ${formatSci(autoCosts[i])} Golden Flasks`
-            DOMCacheGetOrSet(`auto${i}`).classList = data.goldenFlasks.lt(autoCosts[i]) ? 'locked' : 'unlocked'
+        if(data.flaskDiscovered[i]) {
+            if(!data.autoPurchased[i]) {
+                DOMCacheGetOrSet(`auto${i}`).innerText = `Automatic ${juiceColors[i]}\nCost: ${formatSci(autoCosts[i])} Golden Flasks`
+                DOMCacheGetOrSet(`auto${i}`).classList = data.goldenFlasks.lt(autoCosts[i]) ? 'locked' : 'unlocked'
+            }
+            else {
+                DOMCacheGetOrSet(`auto${i}`).innerText = data.autoActive[i] ? `Automatic ${juiceColors[i]}\n[ON]` : `Automatic ${juiceColors[i]}\n[OFF]`
+                DOMCacheGetOrSet(`auto${i}`).classList = data.autoActive[i] ? 'unlocked' : 'locked'
+            }
         }
-        else {
-            DOMCacheGetOrSet(`auto${i}`).innerText = data.autoActive[i] ? `Automatic ${juiceColors[i]}\n[ON]` : `Automatic ${juiceColors[i]}\n[OFF]`
-            DOMCacheGetOrSet(`auto${i}`).classList = data.autoActive[i] ? 'unlocked' : 'locked'
-        }
+        DOMCacheGetOrSet(`auto${i}`).style.display = data.flaskDiscovered[i] ? 'block' : 'none'
     }
 }
 
