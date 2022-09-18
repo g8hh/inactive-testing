@@ -27,8 +27,8 @@ function updatePrestigeHTML() {
 }
 
 function updatePrestige() {
-    goldenFlaskGain = Decimal.sqrt(data.greenEnergy.div(1.25e5))
-    goldenFlaskBoost = data.bestGoldenFlasks.gt(0) ? D(1).plus(Decimal.log10(data.bestGoldenFlasks)) : D(1)
+    goldenFlaskGain = Decimal.sqrt(data.greenEnergy.div(1.25e3))
+    goldenFlaskBoost = data.bestGoldenFlasks.gt(0) ? D(1).plus(Decimal.ln(data.bestGoldenFlasks)) : D(1)
     goldenFlaskEffect = D(1).div(goldenFlaskBoost)
 }
 
