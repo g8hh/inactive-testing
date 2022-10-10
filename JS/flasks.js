@@ -44,13 +44,13 @@ const flaskData = [
     {
         name: 'White Flask',
         id: 'whiteFlask',
-        requirement: D(1e4),
+        requirement: D(3.5e3),
         unlockTime: 43200
     },
     {
         name: 'Black Flask',
         id: 'blackFlask',
-        requirement: D(1e5),
+        requirement: D(5e3),
         unlockTime: 86400
     },
 ]

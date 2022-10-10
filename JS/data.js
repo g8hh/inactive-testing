@@ -22,7 +22,7 @@ function getDefaultObject() {
         currentTab: 0,
         settingsToggles: [true,true],
         buyAmounts: [0,0],
-        currentUpdate: 'v0.0.5.1',
+        currentUpdate: 'v0.0.6',
         devSpeed: 1,
     }
 }
@@ -95,6 +95,7 @@ window.setInterval(function(){
 window.onload = function (){
     load()
     generateEventHandlers()
+    DOMCacheGetOrSet('currentVersionText').innerText = `Current Version: ${getDefaultObject().currentUpdate}`
     diff = (Date.now()-data.time)*data.devSpeed/1000
     $.notify('Welcome Back!\nYou were gone for ' + formatTime(diff), 'info')
     changeTab(data.currentTab)
